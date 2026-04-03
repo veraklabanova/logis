@@ -42,11 +42,11 @@ export default function ReservationDetail() {
     const now = new Date();
     const expires = new Date(reservation.expiresAt);
     const diffMs = expires.getTime() - now.getTime();
-    if (diffMs <= 0) return 'Expirovano';
+    if (diffMs <= 0) return 'Expirováno';
     const hours = Math.floor(diffMs / (1000 * 60 * 60));
     const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-    if (hours > 0) return `Zbyva ${hours}h ${mins}m`;
-    return `Zbyva ${mins}m`;
+    if (hours > 0) return `Zbývá ${hours}h ${mins}m`;
+    return `Zbývá ${mins}m`;
   };
 
   const isActive = reservation.status === 'ACTIVE';
@@ -54,13 +54,13 @@ export default function ReservationDetail() {
 
   const handleExtend = () => {
     alert(
-      `Rezervace prodlouzena o 1 pracovni den.\nProdlouzeni: ${reservation.extensions + 1}/3`
+      `Rezervace prodloužena o 1 pracovní den.\nProdloužení: ${reservation.extensions + 1}/3`
     );
   };
 
   const handleCancel = () => {
     setShowCancelConfirm(false);
-    alert('Rezervace zrusena.');
+    alert('Rezervace zrušena.');
     navigate('my-reservations');
   };
 
@@ -94,7 +94,7 @@ export default function ReservationDetail() {
           {product.size && <span>Vel.: {product.size}</span>}
         </div>
         <div className="flex justify-between text-sm mt-1">
-          <span className="text-gray-500">Mnozstvi</span>
+          <span className="text-gray-500">Množství</span>
           <span className="text-gray-800 font-semibold">{reservation.quantity} ks</span>
         </div>
         <div className="flex justify-between text-sm">
@@ -105,9 +105,9 @@ export default function ReservationDetail() {
 
       {/* Customer info */}
       <div className="bg-white rounded-xl border border-gray-200 p-4 mb-3 space-y-2">
-        <h3 className="text-xs font-semibold text-gray-400 uppercase">Zakaznik</h3>
+        <h3 className="text-xs font-semibold text-gray-400 uppercase">Zákazník</h3>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Jmeno</span>
+          <span className="text-gray-500">Jméno</span>
           <span className="text-gray-800 font-medium">{reservation.customerName}</span>
         </div>
         <div className="flex justify-between text-sm items-center">
@@ -122,7 +122,7 @@ export default function ReservationDetail() {
         </div>
         {reservation.note && (
           <div className="text-sm">
-            <span className="text-gray-500">Poznamka: </span>
+            <span className="text-gray-500">Poznámka: </span>
             <span className="text-gray-800">{reservation.note}</span>
           </div>
         )}
@@ -130,9 +130,9 @@ export default function ReservationDetail() {
 
       {/* Status & timing */}
       <div className="bg-white rounded-xl border border-gray-200 p-4 mb-3 space-y-2">
-        <h3 className="text-xs font-semibold text-gray-400 uppercase">Casove udaje</h3>
+        <h3 className="text-xs font-semibold text-gray-400 uppercase">Časové údaje</h3>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Vytvoreno</span>
+          <span className="text-gray-500">Vytvořeno</span>
           <span className="text-gray-800">{createdDate}</span>
         </div>
         <div className="flex justify-between text-sm">
@@ -146,11 +146,11 @@ export default function ReservationDetail() {
           </div>
         )}
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Prodlouzeni</span>
+          <span className="text-gray-500">Prodloužení</span>
           <span className="text-gray-800">{reservation.extensions}/3</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Vytvoril</span>
+          <span className="text-gray-500">Vytvořil</span>
           <span className="text-gray-800">{getUserName(reservation.createdBy)}</span>
         </div>
       </div>
@@ -164,13 +164,13 @@ export default function ReservationDetail() {
               className="w-full flex items-center justify-center gap-2 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl active:bg-blue-700 transition"
             >
               <RefreshCw size={16} />
-              Prodlouzit o 1 den
+              Prodloužit o 1 den
             </button>
           )}
           {!canExtend && (
             <div className="bg-yellow-50 border border-yellow-200 rounded-xl px-3 py-2.5">
               <p className="text-xs text-yellow-800">
-                Maximalni pocet prodlouzeni (3/3) vycerpan.
+                Maximální počet prodloužení (3/3) vyčerpán.
               </p>
             </div>
           )}
@@ -179,7 +179,7 @@ export default function ReservationDetail() {
             className="w-full flex items-center justify-center gap-2 py-3 bg-red-50 text-red-600 text-sm font-semibold rounded-xl border border-red-200 active:bg-red-100 transition"
           >
             <Trash2 size={16} />
-            Zrusit rezervaci
+            Zrušit rezervaci
           </button>
         </div>
       )}
@@ -189,24 +189,24 @@ export default function ReservationDetail() {
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40">
           <div className="bg-white rounded-t-2xl w-full max-w-md p-4 pb-8">
             <h3 className="text-base font-semibold text-gray-900 mb-2">
-              Zrusit rezervaci?
+              Zrušit rezervaci?
             </h3>
             <p className="text-sm text-gray-600 mb-4">
-              Rezervace pro {reservation.customerName} bude trvale zrusena.
-              Tuto akci nelze vzit zpet.
+              Rezervace pro {reservation.customerName} bude trvale zrušena.
+              Tuto akci nelze vzít zpět.
             </p>
             <div className="space-y-2">
               <button
                 onClick={handleCancel}
                 className="w-full py-3 bg-red-600 text-white text-sm font-semibold rounded-xl"
               >
-                Ano, zrusit
+                Ano, zrušit
               </button>
               <button
                 onClick={() => setShowCancelConfirm(false)}
                 className="w-full py-3 text-sm text-gray-600 bg-gray-100 rounded-xl"
               >
-                Zpet
+                Zpět
               </button>
             </div>
           </div>

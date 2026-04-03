@@ -32,8 +32,8 @@ export default function ScanScreen() {
       {/* Camera placeholder */}
       <div className="bg-gray-200 rounded-2xl aspect-[4/3] flex flex-col items-center justify-center mb-4">
         <Camera size={48} className="text-gray-400 mb-3" />
-        <p className="text-sm text-gray-500">Namirte na carovy kod</p>
-        <p className="text-xs text-gray-400 mt-1">Kamera neni v prototypu dostupna</p>
+        <p className="text-sm text-gray-500">Namiřte na čárový kód</p>
+        <p className="text-xs text-gray-400 mt-1">Kamera není v prototypu dostupná</p>
       </div>
 
       {/* Confirmed state */}
@@ -41,7 +41,7 @@ export default function ScanScreen() {
         <div className="bg-green-50 border border-green-300 rounded-xl p-4 mb-4 flex items-center gap-3">
           <CheckCircle size={24} className="text-green-600 flex-shrink-0" />
           <div>
-            <p className="text-sm font-semibold text-green-800">OK - nalozeni potvrzeno</p>
+            <p className="text-sm font-semibold text-green-800">OK - naložení potvrzeno</p>
             <p className="text-xs text-green-600">EAN: {ean || '—'}</p>
           </div>
         </div>
@@ -54,12 +54,12 @@ export default function ScanScreen() {
           className="w-full flex items-center justify-center gap-2 py-3 bg-gray-100 text-gray-700 text-sm font-medium rounded-xl hover:bg-gray-200 transition"
         >
           <Keyboard size={18} />
-          Zadat EAN rucne
+          Zadat EAN ručně
         </button>
       ) : (
         <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
           <label className="block text-xs font-medium text-gray-600">
-            EAN kod
+            EAN kód
           </label>
           <input
             type="text"
@@ -88,7 +88,7 @@ export default function ScanScreen() {
               }}
               className="flex-1 py-2.5 text-sm text-gray-600 bg-gray-100 rounded-xl"
             >
-              Zrusit
+              Zrušit
             </button>
           </div>
         </div>
@@ -97,8 +97,8 @@ export default function ScanScreen() {
       {/* Info banner */}
       <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-xl px-3 py-2.5">
         <p className="text-xs text-yellow-800">
-          <span className="font-semibold">Prototyp:</span> Sken caroveho kodu
-          je simulovany. V produkcni verzi bude vyuzita kamera zarizeni.
+          <span className="font-semibold">Prototyp:</span> Sken čárového kódu
+          je simulovaný. V produkční verzi bude využita kamera zařízení.
         </p>
       </div>
     </div>

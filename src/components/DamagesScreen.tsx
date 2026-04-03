@@ -9,17 +9,17 @@ import { ArrowLeft, Plus, CheckCircle, X, AlertTriangle } from 'lucide-react';
 import { DamageType } from '@/lib/types';
 
 const damageTypeLabels: Record<DamageType, string> = {
-  mechanical: 'Mechanicke',
-  manufacturing: 'Vyrobni vada',
+  mechanical: 'Mechanické',
+  manufacturing: 'Výrobní vada',
   packaging: 'Obal',
-  other: 'Jine',
+  other: 'Jiné',
 };
 
 const damageTypeOptions: { value: DamageType; label: string }[] = [
-  { value: 'mechanical', label: 'Mechanicke poskozeni' },
-  { value: 'manufacturing', label: 'Vyrobni vada' },
-  { value: 'packaging', label: 'Poskozeny obal' },
-  { value: 'other', label: 'Jine' },
+  { value: 'mechanical', label: 'Mechanické poškození' },
+  { value: 'manufacturing', label: 'Výrobní vada' },
+  { value: 'packaging', label: 'Poškozený obal' },
+  { value: 'other', label: 'Jiné' },
 ];
 
 export default function DamagesScreen() {
@@ -51,15 +51,15 @@ export default function DamagesScreen() {
   }, [formProductQuery]);
 
   const handleResolve = (dmgId: string) => {
-    if (!confirm('Oznacit vadu jako vyresenou?')) return;
-    alert('Vada oznacena jako vyresena.');
+    if (!confirm('Označit vadu jako vyřešenou?')) return;
+    alert('Vada označena jako vyřešena.');
   };
 
   const handleSubmitDamage = () => {
     if (!formProductId || formDescription.trim().length === 0) return;
     const product = getProduct(formProductId);
     alert(
-      `Vada nahlasena!\n\nProdukt: ${product?.name}\nTyp: ${damageTypeLabels[formType]}\nPopis: ${formDescription}`
+      `Vada nahlášena!\n\nProdukt: ${product?.name}\nTyp: ${damageTypeLabels[formType]}\nPopis: ${formDescription}`
     );
     setShowForm(false);
     setFormProductQuery('');
@@ -90,7 +90,7 @@ export default function DamagesScreen() {
       {showForm && (
         <div className="bg-white rounded-xl border border-gray-200 p-4 mb-4 space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-gray-900">Nova vada</h3>
+            <h3 className="text-sm font-semibold text-gray-900">Nová vada</h3>
             <button onClick={() => setShowForm(false)}>
               <X size={18} className="text-gray-400" />
             </button>
@@ -142,7 +142,7 @@ export default function DamagesScreen() {
           {/* Quantity */}
           <div>
             <label className="block text-xs font-medium text-gray-600 mb-1">
-              Mnozstvi
+              Množství
             </label>
             <input
               type="number"
@@ -179,7 +179,7 @@ export default function DamagesScreen() {
             <textarea
               value={formDescription}
               onChange={e => setFormDescription(e.target.value)}
-              placeholder="Popiste vadu..."
+              placeholder="Popište vadu..."
               rows={3}
               className="w-full px-3 py-2.5 text-sm bg-white rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
             />
@@ -194,7 +194,7 @@ export default function DamagesScreen() {
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
             }`}
           >
-            Nahlasit vadu
+            Nahlásit vadu
           </button>
         </div>
       )}
@@ -203,7 +203,7 @@ export default function DamagesScreen() {
       {myDamages.length === 0 && !showForm ? (
         <div className="text-center py-12">
           <AlertTriangle size={32} className="text-gray-300 mx-auto mb-3" />
-          <p className="text-gray-400 text-sm">Zadne evidovane vady</p>
+          <p className="text-gray-400 text-sm">Žádné evidované vady</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -232,12 +232,12 @@ export default function DamagesScreen() {
                         : 'bg-orange-100 text-orange-700'
                     }`}
                   >
-                    {dmg.resolved ? 'Vyreseno' : 'Otevrena'}
+                    {dmg.resolved ? 'Vyřešeno' : 'Otevřená'}
                   </span>
                 </div>
                 <div className="text-xs text-gray-600 space-y-0.5 mt-2">
                   <p>
-                    <span className="text-gray-400">Mnozstvi:</span> {dmg.quantity} ks
+                    <span className="text-gray-400">Množství:</span> {dmg.quantity} ks
                   </p>
                   <p>
                     <span className="text-gray-400">Typ:</span>{' '}
@@ -257,7 +257,7 @@ export default function DamagesScreen() {
                     className="mt-2 flex items-center gap-1 text-xs text-green-700 font-medium bg-green-50 px-3 py-1.5 rounded-lg"
                   >
                     <CheckCircle size={14} />
-                    Vada vyresena
+                    Vada vyřešena
                   </button>
                 )}
               </div>

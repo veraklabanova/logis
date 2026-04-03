@@ -9,10 +9,10 @@ import { ArrowLeft, Check, X } from 'lucide-react';
 import { DisputeReason } from '@/lib/types';
 
 const disputeReasons: { value: DisputeReason; label: string }[] = [
-  { value: 'last_piece', label: 'Posledni kus' },
-  { value: 'reserved_local', label: 'Rezervovano pro mistniho' },
-  { value: 'damaged', label: 'Zbozi poskozene' },
-  { value: 'other', label: 'Jine' },
+  { value: 'last_piece', label: 'Poslední kus' },
+  { value: 'reserved_local', label: 'Rezervováno pro místního' },
+  { value: 'damaged', label: 'Zboží poškozené' },
+  { value: 'other', label: 'Jiné' },
 ];
 
 export default function ApprovalDetail() {
@@ -29,20 +29,20 @@ export default function ApprovalDetail() {
   if (!transfer || !product || !currentUser) {
     return (
       <div className="pt-16 pb-24 px-4 max-w-md mx-auto text-center py-12">
-        <p className="text-gray-400 text-sm">Pozadavek nenalezen</p>
+        <p className="text-gray-400 text-sm">Požadavek nenalezen</p>
       </div>
     );
   }
 
   const handleApprove = () => {
-    alert('Sken EAN potvrzen — presun schvalen!\n\nProdukt: ' + product.name);
+    alert('Sken EAN potvrzen — přesun schválen!\n\nProdukt: ' + product.name);
     navigate('dashboard');
   };
 
   const handleReject = () => {
     setShowRejectModal(false);
     alert(
-      `Pozadavek zamitnut.\nDuvod: ${disputeReasons.find(r => r.value === selectedReason)?.label}\n\nSpor eskalovan na majitele.`
+      `Požadavek zamítnut.\nDůvod: ${disputeReasons.find(r => r.value === selectedReason)?.label}\n\nSpor eskalován na majitele.`
     );
     navigate('dashboard');
   };
@@ -54,13 +54,13 @@ export default function ApprovalDetail() {
         <button onClick={() => navigate('dashboard')} className="p-2 -ml-2">
           <ArrowLeft size={20} className="text-gray-600" />
         </button>
-        <h1 className="text-base font-semibold text-gray-900">Schvaleni presunu</h1>
+        <h1 className="text-base font-semibold text-gray-900">Schválení přesunu</h1>
       </div>
 
       {/* Transfer info */}
       <div className="bg-white rounded-xl border border-gray-200 p-4 mb-4 space-y-2">
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Pozadavek</span>
+          <span className="text-gray-500">Požadavek</span>
           <span className="text-gray-800 font-mono text-xs">{transfer.id}</span>
         </div>
         <div className="flex justify-between text-sm">
@@ -72,11 +72,11 @@ export default function ApprovalDetail() {
           <span className="text-gray-800 font-mono text-xs">{product.sku}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Mnozstvi</span>
+          <span className="text-gray-500">Množství</span>
           <span className="text-gray-800 font-semibold">{transfer.quantity} ks</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Zadajici prodejna</span>
+          <span className="text-gray-500">Žádající prodejna</span>
           <span className="text-gray-800">{getStoreName(transfer.targetStoreId)}</span>
         </div>
         <div className="flex justify-between text-sm">
@@ -84,17 +84,17 @@ export default function ApprovalDetail() {
           <span className="text-gray-800">{getUserName(transfer.createdBy)}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Duvod</span>
+          <span className="text-gray-500">Důvod</span>
           <span className="text-gray-800">
             {transfer.reason === 'customer_waiting'
-              ? 'Zakaznik ceka'
+              ? 'Zákazník čeká'
               : transfer.reason === 'restock'
-              ? 'Doplneni skladu'
-              : 'Jine'}
+              ? 'Doplnění skladu'
+              : 'Jiné'}
           </span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">ATP na moji prodejne</span>
+          <span className="text-gray-500">ATP na mojí prodejně</span>
           <span className="text-gray-800 font-semibold">{myStoreAtp} ks</span>
         </div>
       </div>
@@ -106,14 +106,14 @@ export default function ApprovalDetail() {
           className="w-full flex items-center justify-center gap-2 py-4 bg-green-600 text-white text-base font-semibold rounded-xl active:bg-green-700 transition"
         >
           <Check size={20} />
-          Schvalit
+          Schválit
         </button>
         <button
           onClick={() => setShowRejectModal(true)}
           className="w-full flex items-center justify-center gap-2 py-4 bg-red-600 text-white text-base font-semibold rounded-xl active:bg-red-700 transition"
         >
           <X size={20} />
-          Zamitnout
+          Zamítnout
         </button>
       </div>
 
@@ -122,7 +122,7 @@ export default function ApprovalDetail() {
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40">
           <div className="bg-white rounded-t-2xl w-full max-w-md p-4 pb-8">
             <h3 className="text-base font-semibold text-gray-900 mb-3">
-              Duvod zamitnuti
+              Důvod zamítnutí
             </h3>
             <div className="space-y-2 mb-4">
               {disputeReasons.map(opt => (
@@ -144,13 +144,13 @@ export default function ApprovalDetail() {
                 onClick={handleReject}
                 className="w-full py-3 bg-red-600 text-white text-sm font-semibold rounded-xl"
               >
-                Potvrdit zamitnuti
+                Potvrdit zamítnutí
               </button>
               <button
                 onClick={() => setShowRejectModal(false)}
                 className="w-full py-3 text-sm text-gray-600 bg-gray-100 rounded-xl"
               >
-                Zpet
+                Zpět
               </button>
             </div>
           </div>

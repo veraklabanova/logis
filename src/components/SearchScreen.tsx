@@ -73,7 +73,7 @@ export default function SearchScreen() {
   };
 
   const handleScan = () => {
-    alert('Skener neni v prototypu dostupny');
+    alert('Skener není v prototypu dostupný');
   };
 
   const handleStoreRowTap = (storeId: string, atp: number) => {
@@ -111,7 +111,7 @@ export default function SearchScreen() {
               setQuery(e.target.value);
               if (selectedProduct) setSelectedProduct(null);
             }}
-            placeholder="Nazev, kod nebo EAN..."
+            placeholder="Název, kód nebo EAN..."
             className="w-full pl-9 pr-3 py-2.5 text-sm bg-gray-100 rounded-xl border-0 focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none"
           />
         </div>
@@ -169,7 +169,7 @@ export default function SearchScreen() {
           {/* Stock table */}
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <div className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-x-2 px-3 py-2 bg-gray-50 border-b border-gray-200">
-              <span className="text-[10px] font-semibold text-gray-500 uppercase">Pobocka</span>
+              <span className="text-[10px] font-semibold text-gray-500 uppercase">Pobočka</span>
               <span className="text-[10px] font-semibold text-gray-500 uppercase text-right">ERP</span>
               <span className="text-[10px] font-semibold text-gray-500 uppercase text-right">Rez.</span>
               <span className="text-[10px] font-semibold text-gray-500 uppercase text-right">Vady</span>
@@ -212,7 +212,7 @@ export default function SearchScreen() {
                         className="w-full flex items-center justify-center gap-2 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg"
                       >
                         <ShoppingCart size={16} />
-                        Rezervovat pro zakaznika
+                        Rezervovat pro zákazníka
                       </button>
                     ) : (
                       <button
@@ -220,7 +220,7 @@ export default function SearchScreen() {
                         className="w-full flex items-center justify-center gap-2 py-2.5 bg-orange-500 text-white text-sm font-medium rounded-lg"
                       >
                         <Truck size={16} />
-                        Pozadat o presun
+                        Požádat o přesun
                       </button>
                     )}
                   </div>

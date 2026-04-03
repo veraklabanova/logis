@@ -32,7 +32,7 @@ export default function DashboardVedouci() {
       <section>
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-sm font-semibold text-gray-800">
-            Aktivni rezervace
+            Aktivní rezervace
             {activeReservations.length > 0 && (
               <span className="ml-2 bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full">
                 {activeReservations.length}
@@ -40,14 +40,14 @@ export default function DashboardVedouci() {
             )}
           </h2>
           <button onClick={() => navigate('my-reservations')} className="text-xs text-blue-600">
-            Vse
+            Vše
           </button>
         </div>
 
         {activeReservations.length === 0 ? (
           <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
             <Package size={24} className="text-gray-300 mx-auto mb-2" />
-            <p className="text-xs text-gray-400">Zadne aktivni rezervace</p>
+            <p className="text-xs text-gray-400">Žádné aktivní rezervace</p>
           </div>
         ) : (
           <div className="space-y-2">
@@ -88,7 +88,7 @@ export default function DashboardVedouci() {
         <section>
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-sm font-semibold text-gray-800">
-              Ke schvaleni
+              Ke schválení
               {pendingApprovals.length > 0 && (
                 <span className="ml-2 bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
                   {pendingApprovals.length}
@@ -100,7 +100,7 @@ export default function DashboardVedouci() {
           {pendingApprovals.length === 0 ? (
             <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
               <CheckCircle size={24} className="text-gray-300 mx-auto mb-2" />
-              <p className="text-xs text-gray-400">Zadne cekajici pozadavky</p>
+              <p className="text-xs text-gray-400">Žádné čekající požadavky</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -115,7 +115,7 @@ export default function DashboardVedouci() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-gray-900">
-                          {getStoreShortName(tr.targetStoreId)} &rarr; moje pobocka
+                          {getStoreShortName(tr.targetStoreId)} &rarr; moje pobočka
                         </p>
                         <p className="text-xs text-gray-500 mt-0.5">
                           {product?.name} &middot; {tr.quantity} ks
@@ -136,9 +136,9 @@ export default function DashboardVedouci() {
 
       {/* Recent Activity */}
       <section>
-        <h2 className="text-sm font-semibold text-gray-800 mb-2">Posledni aktivita</h2>
+        <h2 className="text-sm font-semibold text-gray-800 mb-2">Poslední aktivita</h2>
         {recentActivity.length === 0 ? (
-          <p className="text-xs text-gray-400 bg-white rounded-xl border p-4 text-center">Zadna nedavna aktivita</p>
+          <p className="text-xs text-gray-400 bg-white rounded-xl border p-4 text-center">Žádná nedávná aktivita</p>
         ) : (
           <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
             {recentActivity.map(tr => {

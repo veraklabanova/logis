@@ -5,79 +5,79 @@ import {
 
 // ==================== STORES (6 prodejen) ====================
 export const stores: Store[] = [
-  { id: 'P1', name: 'Prodejna Centrum', address: 'Hlavni 12, Praha 1', shortName: 'Centrum' },
-  { id: 'P2', name: 'Prodejna Vinohrady', address: 'Vinohradska 45, Praha 2', shortName: 'Vinohrady' },
-  { id: 'P3', name: 'Prodejna Smichov', address: 'Plzenska 78, Praha 5', shortName: 'Smichov' },
-  { id: 'P4', name: 'Prodejna Karlin', address: 'Krizikova 33, Praha 8', shortName: 'Karlin' },
-  { id: 'P5', name: 'Prodejna Letna', address: 'Milady Horakove 90, Praha 7', shortName: 'Letna' },
-  { id: 'P6', name: 'Prodejna Chodov', address: 'Roztylska 2, Praha 4', shortName: 'Chodov' },
+  { id: 'P1', name: 'Prodejna Centrum', address: 'Hlavní 12, Praha 1', shortName: 'Centrum' },
+  { id: 'P2', name: 'Prodejna Vinohrady', address: 'Vinohradská 45, Praha 2', shortName: 'Vinohrady' },
+  { id: 'P3', name: 'Prodejna Smíchov', address: 'Plzeňská 78, Praha 5', shortName: 'Smíchov' },
+  { id: 'P4', name: 'Prodejna Karlín', address: 'Křižíkova 33, Praha 8', shortName: 'Karlín' },
+  { id: 'P5', name: 'Prodejna Letná', address: 'Milady Horákové 90, Praha 7', shortName: 'Letná' },
+  { id: 'P6', name: 'Prodejna Chodov', address: 'Roztylská 2, Praha 4', shortName: 'Chodov' },
 ];
 
 // ==================== USERS (35 zamestnancu) ====================
 export const users: User[] = [
   // P1 - Centrum
-  { id: 'U01', name: 'Jan Novak', role: 'vedouci', storeId: 'P1', pin: '1234' },
-  { id: 'U02', name: 'Petra Svobodova', role: 'prodavac', storeId: 'P1', pin: '1111' },
-  { id: 'U03', name: 'Tomas Prochazka', role: 'prodavac', storeId: 'P1', pin: '2222' },
-  { id: 'U04', name: 'Lucie Kralova', role: 'prodavac', storeId: 'P1', pin: '3333' },
-  { id: 'U05', name: 'Martin Horak', role: 'prodavac', storeId: 'P1', pin: '4444' },
+  { id: 'U01', name: 'Jan Novák', role: 'vedouci', storeId: 'P1', pin: '1234' },
+  { id: 'U02', name: 'Petra Svobodová', role: 'prodavac', storeId: 'P1', pin: '1111' },
+  { id: 'U03', name: 'Tomáš Procházka', role: 'prodavac', storeId: 'P1', pin: '2222' },
+  { id: 'U04', name: 'Lucie Králová', role: 'prodavac', storeId: 'P1', pin: '3333' },
+  { id: 'U05', name: 'Martin Horák', role: 'prodavac', storeId: 'P1', pin: '4444' },
   // P2 - Vinohrady
-  { id: 'U06', name: 'Eva Nemcova', role: 'vedouci', storeId: 'P2', pin: '1234' },
-  { id: 'U07', name: 'David Kolar', role: 'prodavac', storeId: 'P2', pin: '1111' },
-  { id: 'U08', name: 'Hana Maresova', role: 'prodavac', storeId: 'P2', pin: '2222' },
-  { id: 'U09', name: 'Jiri Pospisil', role: 'prodavac', storeId: 'P2', pin: '3333' },
-  { id: 'U10', name: 'Katerina Hajkova', role: 'prodavac', storeId: 'P2', pin: '4444' },
-  // P3 - Smichov
-  { id: 'U11', name: 'Michal Jelinek', role: 'vedouci', storeId: 'P3', pin: '1234' },
-  { id: 'U12', name: 'Veronika Kopecka', role: 'prodavac', storeId: 'P3', pin: '1111' },
-  { id: 'U13', name: 'Ondrej Fiala', role: 'prodavac', storeId: 'P3', pin: '2222' },
-  { id: 'U14', name: 'Barbora Vlckova', role: 'prodavac', storeId: 'P3', pin: '3333' },
-  { id: 'U15', name: 'Stepan Kriz', role: 'prodavac', storeId: 'P3', pin: '4444' },
-  // P4 - Karlin
-  { id: 'U16', name: 'Alena Sedlackova', role: 'vedouci', storeId: 'P4', pin: '1234' },
-  { id: 'U17', name: 'Pavel Benes', role: 'prodavac', storeId: 'P4', pin: '1111' },
-  { id: 'U18', name: 'Marketa Ruzickova', role: 'prodavac', storeId: 'P4', pin: '2222' },
-  { id: 'U19', name: 'Vojtech Polak', role: 'prodavac', storeId: 'P4', pin: '3333' },
-  { id: 'U20', name: 'Simona Kadlecova', role: 'prodavac', storeId: 'P4', pin: '4444' },
-  // P5 - Letna
-  { id: 'U21', name: 'Roman Dolezal', role: 'vedouci', storeId: 'P5', pin: '1234' },
-  { id: 'U22', name: 'Ivana Blahova', role: 'prodavac', storeId: 'P5', pin: '1111' },
+  { id: 'U06', name: 'Eva Němcová', role: 'vedouci', storeId: 'P2', pin: '1234' },
+  { id: 'U07', name: 'David Kolář', role: 'prodavac', storeId: 'P2', pin: '1111' },
+  { id: 'U08', name: 'Hana Marešová', role: 'prodavac', storeId: 'P2', pin: '2222' },
+  { id: 'U09', name: 'Jiří Pospíšil', role: 'prodavac', storeId: 'P2', pin: '3333' },
+  { id: 'U10', name: 'Kateřina Hájková', role: 'prodavac', storeId: 'P2', pin: '4444' },
+  // P3 - Smíchov
+  { id: 'U11', name: 'Michal Jelínek', role: 'vedouci', storeId: 'P3', pin: '1234' },
+  { id: 'U12', name: 'Veronika Kopecká', role: 'prodavac', storeId: 'P3', pin: '1111' },
+  { id: 'U13', name: 'Ondřej Fiala', role: 'prodavac', storeId: 'P3', pin: '2222' },
+  { id: 'U14', name: 'Barbora Vlčková', role: 'prodavac', storeId: 'P3', pin: '3333' },
+  { id: 'U15', name: 'Štěpán Kříž', role: 'prodavac', storeId: 'P3', pin: '4444' },
+  // P4 - Karlín
+  { id: 'U16', name: 'Alena Sedláčková', role: 'vedouci', storeId: 'P4', pin: '1234' },
+  { id: 'U17', name: 'Pavel Beneš', role: 'prodavac', storeId: 'P4', pin: '1111' },
+  { id: 'U18', name: 'Markéta Růžičková', role: 'prodavac', storeId: 'P4', pin: '2222' },
+  { id: 'U19', name: 'Vojtěch Polák', role: 'prodavac', storeId: 'P4', pin: '3333' },
+  { id: 'U20', name: 'Simona Kadlecová', role: 'prodavac', storeId: 'P4', pin: '4444' },
+  // P5 - Letná
+  { id: 'U21', name: 'Roman Doležal', role: 'vedouci', storeId: 'P5', pin: '1234' },
+  { id: 'U22', name: 'Ivana Bláhová', role: 'prodavac', storeId: 'P5', pin: '1111' },
   { id: 'U23', name: 'Filip Koubek', role: 'prodavac', storeId: 'P5', pin: '2222' },
   { id: 'U24', name: 'Tereza Mach', role: 'prodavac', storeId: 'P5', pin: '3333' },
-  { id: 'U25', name: 'Daniel Kucera', role: 'prodavac', storeId: 'P5', pin: '4444' },
+  { id: 'U25', name: 'Daniel Kučera', role: 'prodavac', storeId: 'P5', pin: '4444' },
   // P6 - Chodov
-  { id: 'U26', name: 'Lenka Strnadova', role: 'vedouci', storeId: 'P6', pin: '1234' },
-  { id: 'U27', name: 'Jakub Vavra', role: 'prodavac', storeId: 'P6', pin: '1111' },
-  { id: 'U28', name: 'Nikola Pechova', role: 'prodavac', storeId: 'P6', pin: '2222' },
-  { id: 'U29', name: 'Adam Sykora', role: 'prodavac', storeId: 'P6', pin: '3333' },
-  // Ridici
-  { id: 'U30', name: 'Petr Maly', role: 'ridic', storeId: 'P1', pin: '5555' },
-  { id: 'U31', name: 'Radek Vesely', role: 'ridic', storeId: 'P1', pin: '6666' },
+  { id: 'U26', name: 'Lenka Strnadová', role: 'vedouci', storeId: 'P6', pin: '1234' },
+  { id: 'U27', name: 'Jakub Vávra', role: 'prodavac', storeId: 'P6', pin: '1111' },
+  { id: 'U28', name: 'Nikola Pechová', role: 'prodavac', storeId: 'P6', pin: '2222' },
+  { id: 'U29', name: 'Adam Sýkora', role: 'prodavac', storeId: 'P6', pin: '3333' },
+  // Řidiči
+  { id: 'U30', name: 'Petr Malý', role: 'ridic', storeId: 'P1', pin: '5555' },
+  { id: 'U31', name: 'Radek Veselý', role: 'ridic', storeId: 'P1', pin: '6666' },
   // Majitel
-  { id: 'U32', name: 'Karel Dvorak', role: 'majitel', storeId: 'P1', pin: '9999' },
-  // Doplneni
-  { id: 'U33', name: 'Zuzana Havlickova', role: 'prodavac', storeId: 'P6', pin: '7777' },
-  { id: 'U34', name: 'Ales Bartos', role: 'prodavac', storeId: 'P1', pin: '8888' },
-  { id: 'U35', name: 'Monika Stastna', role: 'prodavac', storeId: 'P3', pin: '9090' },
+  { id: 'U32', name: 'Karel Dvořák', role: 'majitel', storeId: 'P1', pin: '9999' },
+  // Doplnění
+  { id: 'U33', name: 'Zuzana Havlíčková', role: 'prodavac', storeId: 'P6', pin: '7777' },
+  { id: 'U34', name: 'Aleš Bartoš', role: 'prodavac', storeId: 'P1', pin: '8888' },
+  { id: 'U35', name: 'Monika Šťastná', role: 'prodavac', storeId: 'P3', pin: '9090' },
 ];
 
 // ==================== PRODUCTS (Obuv - MVP) ====================
 export const products: Product[] = [
-  { id: 'PR01', name: 'Nike Air Max 90', sku: 'NK-AM90-BK42', ean: '8901234567890', category: 'Obuv', size: '42', color: 'Cerna' },
-  { id: 'PR02', name: 'Nike Air Max 90', sku: 'NK-AM90-WH43', ean: '8901234567891', category: 'Obuv', size: '43', color: 'Bila' },
-  { id: 'PR03', name: 'Adidas Superstar', sku: 'AD-SS-WH41', ean: '8901234567892', category: 'Obuv', size: '41', color: 'Bila' },
-  { id: 'PR04', name: 'Adidas Superstar', sku: 'AD-SS-BK44', ean: '8901234567893', category: 'Obuv', size: '44', color: 'Cerna' },
-  { id: 'PR05', name: 'Puma RS-X', sku: 'PM-RSX-GR42', ean: '8901234567894', category: 'Obuv', size: '42', color: 'Seda' },
-  { id: 'PR06', name: 'New Balance 574', sku: 'NB-574-NV43', ean: '8901234567895', category: 'Obuv', size: '43', color: 'Tmave modra' },
-  { id: 'PR07', name: 'New Balance 574', sku: 'NB-574-GR41', ean: '8901234567896', category: 'Obuv', size: '41', color: 'Seda' },
-  { id: 'PR08', name: 'Reebok Classic', sku: 'RB-CL-WH42', ean: '8901234567897', category: 'Obuv', size: '42', color: 'Bila' },
-  { id: 'PR09', name: 'Vans Old Skool', sku: 'VN-OS-BK43', ean: '8901234567898', category: 'Obuv', size: '43', color: 'Cerna' },
-  { id: 'PR10', name: 'Converse Chuck 70', sku: 'CV-C70-RD42', ean: '8901234567899', category: 'Obuv', size: '42', color: 'Cervena' },
-  { id: 'PR11', name: 'Nike Air Force 1', sku: 'NK-AF1-WH44', ean: '8901234567900', category: 'Obuv', size: '44', color: 'Bila' },
-  { id: 'PR12', name: 'Adidas Gazelle', sku: 'AD-GZ-GN41', ean: '8901234567901', category: 'Obuv', size: '41', color: 'Zelena' },
-  { id: 'PR13', name: 'Asics Gel-Kayano', sku: 'AS-GK-BL43', ean: '8901234567902', category: 'Obuv', size: '43', color: 'Modra' },
+  { id: 'PR01', name: 'Nike Air Max 90', sku: 'NK-AM90-BK42', ean: '8901234567890', category: 'Obuv', size: '42', color: 'Černá' },
+  { id: 'PR02', name: 'Nike Air Max 90', sku: 'NK-AM90-WH43', ean: '8901234567891', category: 'Obuv', size: '43', color: 'Bílá' },
+  { id: 'PR03', name: 'Adidas Superstar', sku: 'AD-SS-WH41', ean: '8901234567892', category: 'Obuv', size: '41', color: 'Bílá' },
+  { id: 'PR04', name: 'Adidas Superstar', sku: 'AD-SS-BK44', ean: '8901234567893', category: 'Obuv', size: '44', color: 'Černá' },
+  { id: 'PR05', name: 'Puma RS-X', sku: 'PM-RSX-GR42', ean: '8901234567894', category: 'Obuv', size: '42', color: 'Šedá' },
+  { id: 'PR06', name: 'New Balance 574', sku: 'NB-574-NV43', ean: '8901234567895', category: 'Obuv', size: '43', color: 'Tmavě modrá' },
+  { id: 'PR07', name: 'New Balance 574', sku: 'NB-574-GR41', ean: '8901234567896', category: 'Obuv', size: '41', color: 'Šedá' },
+  { id: 'PR08', name: 'Reebok Classic', sku: 'RB-CL-WH42', ean: '8901234567897', category: 'Obuv', size: '42', color: 'Bílá' },
+  { id: 'PR09', name: 'Vans Old Skool', sku: 'VN-OS-BK43', ean: '8901234567898', category: 'Obuv', size: '43', color: 'Černá' },
+  { id: 'PR10', name: 'Converse Chuck 70', sku: 'CV-C70-RD42', ean: '8901234567899', category: 'Obuv', size: '42', color: 'Červená' },
+  { id: 'PR11', name: 'Nike Air Force 1', sku: 'NK-AF1-WH44', ean: '8901234567900', category: 'Obuv', size: '44', color: 'Bílá' },
+  { id: 'PR12', name: 'Adidas Gazelle', sku: 'AD-GZ-GN41', ean: '8901234567901', category: 'Obuv', size: '41', color: 'Zelená' },
+  { id: 'PR13', name: 'Asics Gel-Kayano', sku: 'AS-GK-BL43', ean: '8901234567902', category: 'Obuv', size: '43', color: 'Modrá' },
   { id: 'PR14', name: 'Nike Dunk Low', sku: 'NK-DL-PD42', ean: '8901234567903', category: 'Obuv', size: '42', color: 'Panda' },
-  { id: 'PR15', name: 'Salomon XT-6', sku: 'SL-XT6-BK41', ean: '8901234567904', category: 'Obuv', size: '41', color: 'Cerna' },
+  { id: 'PR15', name: 'Salomon XT-6', sku: 'SL-XT6-BK41', ean: '8901234567904', category: 'Obuv', size: '41', color: 'Černá' },
 ];
 
 // ==================== STOCK ====================
@@ -118,19 +118,19 @@ export const stockEntries: StockEntry[] = [
 export const reservations: Reservation[] = [
   {
     id: 'RES001', productId: 'PR01', storeId: 'P1', quantity: 1,
-    customerName: 'Frantisek Koudelka', customerPhone: '+420601111111', note: 'Vel. 42',
+    customerName: 'František Koudelka', customerPhone: '+420601111111', note: 'Vel. 42',
     status: 'ACTIVE', createdAt: '2025-02-14T09:30:00', expiresAt: '2025-02-15T09:30:00',
     createdBy: 'U01', extensions: 0,
   },
   {
     id: 'RES002', productId: 'PR03', storeId: 'P2', quantity: 1,
-    customerName: 'Marie Dvorakova', customerPhone: '+420602222222',
+    customerName: 'Marie Dvořáková', customerPhone: '+420602222222',
     status: 'ACTIVE', createdAt: '2025-02-14T11:00:00', expiresAt: '2025-02-15T11:00:00',
     createdBy: 'U06', extensions: 1,
   },
   {
     id: 'RES003', productId: 'PR09', storeId: 'P1', quantity: 2,
-    customerName: 'Jiri Barta', customerPhone: '+420603333333',
+    customerName: 'Jiří Bárta', customerPhone: '+420603333333',
     status: 'ACTIVE', createdAt: '2025-02-13T14:15:00', expiresAt: '2025-02-14T14:15:00',
     createdBy: 'U02', extensions: 0,
   },
@@ -142,19 +142,19 @@ export const reservations: Reservation[] = [
   },
   {
     id: 'RES005', productId: 'PR11', storeId: 'P5', quantity: 1,
-    customerName: 'Petr Soucek', customerPhone: '+420605555555',
+    customerName: 'Petr Souček', customerPhone: '+420605555555',
     status: 'FULFILLED', createdAt: '2025-02-12T08:45:00', expiresAt: '2025-02-13T08:45:00',
     createdBy: 'U21', extensions: 0,
   },
   {
     id: 'RES006', productId: 'PR14', storeId: 'P4', quantity: 1,
-    customerName: 'Anna Cermakova', customerPhone: '+420606666666',
+    customerName: 'Anna Čermáková', customerPhone: '+420606666666',
     status: 'ACTIVE', createdAt: '2025-02-14T16:00:00', expiresAt: '2025-02-15T16:00:00',
     createdBy: 'U16', extensions: 0,
   },
   {
     id: 'RES007', productId: 'PR05', storeId: 'P3', quantity: 1,
-    customerName: 'Vaclav Hubicka', customerPhone: '+420607777777',
+    customerName: 'Václav Hubička', customerPhone: '+420607777777',
     status: 'CANCELLED', createdAt: '2025-02-08T09:00:00', expiresAt: '2025-02-09T09:00:00',
     createdBy: 'U12', extensions: 0,
   },
@@ -183,7 +183,7 @@ export const transferRequests: TransferRequest[] = [
   {
     id: 'TR004', productId: 'PR08', sourceStoreId: 'P6', targetStoreId: 'P4',
     quantity: 1, status: 'DISPUTED', reason: 'customer_waiting',
-    disputeReason: 'last_piece', disputeText: 'Posledni kus na prodejne, mame zakaznika',
+    disputeReason: 'last_piece', disputeText: 'Poslední kus na prodejně, máme zákazníka',
     createdAt: '2025-02-13T15:00:00', createdBy: 'U16',
   },
   {
@@ -216,43 +216,43 @@ export const transferRequests: TransferRequest[] = [
 export const damageReports: DamageReport[] = [
   {
     id: 'DMG001', productId: 'PR09', storeId: 'P1', quantity: 1,
-    damageType: 'mechanical', description: 'Odlepena podesev, levy bot',
+    damageType: 'mechanical', description: 'Odlepená podrážka, levý bot',
     reportedBy: 'U02', reportedAt: '2025-02-13T11:00:00', resolved: false,
   },
   {
     id: 'DMG002', productId: 'PR05', storeId: 'P3', quantity: 1,
-    damageType: 'packaging', description: 'Krabice znicena, boty ok ale nelze prodat jako nove',
+    damageType: 'packaging', description: 'Krabice zničena, boty ok ale nelze prodat jako nové',
     reportedBy: 'U12', reportedAt: '2025-02-11T09:30:00', resolved: false,
   },
   {
     id: 'DMG003', productId: 'PR12', storeId: 'P2', quantity: 1,
-    damageType: 'manufacturing', description: 'Spatne prisity pasek, vyrobni vada',
+    damageType: 'manufacturing', description: 'Špatně přišitý pásek, výrobní vada',
     reportedBy: 'U07', reportedAt: '2025-02-09T16:00:00', resolved: true, resolvedAt: '2025-02-12T10:00:00',
   },
 ];
 
 // ==================== NOTIFICATIONS ====================
 export const notifications: Notification[] = [
-  { id: 'N01', userId: 'U01', type: 'transfer', title: 'Novy pozadavek na presun', message: 'Pozadavek TR008: Adidas Superstar BK44 z Vinohrady', timestamp: '2025-02-14T14:05:00', read: false },
-  { id: 'N02', userId: 'U06', type: 'transfer', title: 'Pozadavek schvalen', message: 'TR002: New Balance 574 schvalen vedouci Karlin', timestamp: '2025-02-14T08:50:00', read: true },
-  { id: 'N03', userId: 'U32', type: 'arbitrage', title: 'Cekajici arbitraz', message: 'Spor TR004: Reebok Classic — Chodov odmitl presun pro Karlin', timestamp: '2025-02-13T15:10:00', read: false },
-  { id: 'N04', userId: 'U11', type: 'delivery', title: 'Zbozi doruceno', message: 'TR001: Nike Air Max 90 dorucen na Vinohrady', timestamp: '2025-02-10T14:35:00', read: true },
-  { id: 'N05', userId: 'U16', type: 'expiration', title: 'Expirace blizi se', message: 'Rezervace RES006 pro Anna Cermakova expiruje za 2 hodiny', timestamp: '2025-02-15T14:00:00', read: false },
-  { id: 'N06', userId: 'U21', type: 'transfer', title: 'Pozadavek odeslan', message: 'TR003: Nike Air Force 1 — cekame na schvaleni Letna', timestamp: '2025-02-14T10:05:00', read: true },
-  { id: 'N07', userId: 'U01', type: 'damage', title: 'Nova vada nahlasena', message: 'DMG001: Vans Old Skool — mechanicke poskozeni', timestamp: '2025-02-13T11:05:00', read: true },
-  { id: 'N08', userId: 'U30', type: 'transfer', title: 'Manifest pripraven', message: 'Dnesni manifest: 3 pobocky, 4 polozky', timestamp: '2025-02-14T07:45:00', read: true },
+  { id: 'N01', userId: 'U01', type: 'transfer', title: 'Nový požadavek na přesun', message: 'Požadavek TR008: Adidas Superstar BK44 z Vinohrady', timestamp: '2025-02-14T14:05:00', read: false },
+  { id: 'N02', userId: 'U06', type: 'transfer', title: 'Požadavek schválen', message: 'TR002: New Balance 574 schválen vedoucí Karlín', timestamp: '2025-02-14T08:50:00', read: true },
+  { id: 'N03', userId: 'U32', type: 'arbitrage', title: 'Čekající arbitráž', message: 'Spor TR004: Reebok Classic — Chodov odmítl přesun pro Karlín', timestamp: '2025-02-13T15:10:00', read: false },
+  { id: 'N04', userId: 'U11', type: 'delivery', title: 'Zboží doručeno', message: 'TR001: Nike Air Max 90 doručen na Vinohrady', timestamp: '2025-02-10T14:35:00', read: true },
+  { id: 'N05', userId: 'U16', type: 'expiration', title: 'Expirace se blíží', message: 'Rezervace RES006 pro Anna Čermáková expiruje za 2 hodiny', timestamp: '2025-02-15T14:00:00', read: false },
+  { id: 'N06', userId: 'U21', type: 'transfer', title: 'Požadavek odeslán', message: 'TR003: Nike Air Force 1 — čekáme na schválení Letná', timestamp: '2025-02-14T10:05:00', read: true },
+  { id: 'N07', userId: 'U01', type: 'damage', title: 'Nová vada nahlášena', message: 'DMG001: Vans Old Skool — mechanické poškození', timestamp: '2025-02-13T11:05:00', read: true },
+  { id: 'N08', userId: 'U30', type: 'transfer', title: 'Manifest připraven', message: 'Dnešní manifest: 3 pobočky, 4 položky', timestamp: '2025-02-14T07:45:00', read: true },
 ];
 
 // ==================== AUDIT LOG ====================
 export const auditEntries: AuditEntry[] = [
-  { id: 'A01', timestamp: '2025-02-14T08:45:00', userId: 'U16', userName: 'Alena Sedlackova', userRole: 'vedouci', action: 'Schvaleni presunu', productSku: 'NB-574-NV43', storeName: 'Karlin → Centrum', details: 'Schvalen presun 2 ks New Balance 574 do Centrum', category: 'approval' },
-  { id: 'A02', timestamp: '2025-02-14T07:00:00', userId: 'U01', userName: 'Jan Novak', userRole: 'vedouci', action: 'Schvaleni presunu', productSku: 'AD-SS-WH41', storeName: 'Centrum → Letna', details: 'Schvalen presun 1 ks Adidas Superstar do Letna', category: 'approval' },
-  { id: 'A03', timestamp: '2025-02-13T15:05:00', userId: 'U26', userName: 'Lenka Strnadova', userRole: 'vedouci', action: 'Zamitnuti presunu', productSku: 'RB-CL-WH42', storeName: 'Chodov', details: 'Zamitnuto: Posledni kus na prodejne', category: 'rejection' },
-  { id: 'A04', timestamp: '2025-02-13T11:00:00', userId: 'U02', userName: 'Petra Svobodova', userRole: 'prodavac', action: 'Nahlaseni vady', productSku: 'VN-OS-BK43', storeName: 'Centrum', details: 'Mechanicke poskozeni — odlepena podesev', category: 'damage' },
-  { id: 'A05', timestamp: '2025-02-12T10:00:00', userId: 'U07', userName: 'David Kolar', userRole: 'prodavac', action: 'Vada vyresena', productSku: 'AD-GZ-GN41', storeName: 'Vinohrady', details: 'Vada vyresena — zbozi vraceno do prodeje', category: 'damage' },
-  { id: 'A06', timestamp: '2025-02-10T14:30:00', userId: 'U30', userName: 'Petr Maly', userRole: 'ridic', action: 'Doruceni', productSku: 'NK-AM90-BK42', storeName: 'Smichov → Vinohrady', details: 'Dorucen 1 ks Nike Air Max 90', category: 'transfer' },
-  { id: 'A07', timestamp: '2025-02-10T09:15:00', userId: 'U11', userName: 'Michal Jelinek', userRole: 'vedouci', action: 'Schvaleni presunu', productSku: 'NK-AM90-BK42', storeName: 'Smichov → Vinohrady', details: 'Schvalen presun 1 ks Nike Air Max 90', category: 'approval' },
-  { id: 'A08', timestamp: '2025-02-05T15:00:00', userId: 'U30', userName: 'Petr Maly', userRole: 'ridic', action: 'Doruceni', productSku: 'CV-C70-RD42', storeName: 'Karlin → Chodov', details: 'Dorucen 1 ks Converse Chuck 70', category: 'transfer' },
+  { id: 'A01', timestamp: '2025-02-14T08:45:00', userId: 'U16', userName: 'Alena Sedláčková', userRole: 'vedouci', action: 'Schválení přesunu', productSku: 'NB-574-NV43', storeName: 'Karlín → Centrum', details: 'Schválen přesun 2 ks New Balance 574 do Centrum', category: 'approval' },
+  { id: 'A02', timestamp: '2025-02-14T07:00:00', userId: 'U01', userName: 'Jan Novák', userRole: 'vedouci', action: 'Schválení přesunu', productSku: 'AD-SS-WH41', storeName: 'Centrum → Letná', details: 'Schválen přesun 1 ks Adidas Superstar do Letná', category: 'approval' },
+  { id: 'A03', timestamp: '2025-02-13T15:05:00', userId: 'U26', userName: 'Lenka Strnadová', userRole: 'vedouci', action: 'Zamítnutí přesunu', productSku: 'RB-CL-WH42', storeName: 'Chodov', details: 'Zamítnuto: Poslední kus na prodejně', category: 'rejection' },
+  { id: 'A04', timestamp: '2025-02-13T11:00:00', userId: 'U02', userName: 'Petra Svobodová', userRole: 'prodavac', action: 'Nahlášení vady', productSku: 'VN-OS-BK43', storeName: 'Centrum', details: 'Mechanické poškození — odlepená podrážka', category: 'damage' },
+  { id: 'A05', timestamp: '2025-02-12T10:00:00', userId: 'U07', userName: 'David Kolář', userRole: 'prodavac', action: 'Vada vyřešena', productSku: 'AD-GZ-GN41', storeName: 'Vinohrady', details: 'Vada vyřešena — zboží vráceno do prodeje', category: 'damage' },
+  { id: 'A06', timestamp: '2025-02-10T14:30:00', userId: 'U30', userName: 'Petr Malý', userRole: 'ridic', action: 'Doručení', productSku: 'NK-AM90-BK42', storeName: 'Smíchov → Vinohrady', details: 'Doručen 1 ks Nike Air Max 90', category: 'transfer' },
+  { id: 'A07', timestamp: '2025-02-10T09:15:00', userId: 'U11', userName: 'Michal Jelínek', userRole: 'vedouci', action: 'Schválení přesunu', productSku: 'NK-AM90-BK42', storeName: 'Smíchov → Vinohrady', details: 'Schválen přesun 1 ks Nike Air Max 90', category: 'approval' },
+  { id: 'A08', timestamp: '2025-02-05T15:00:00', userId: 'U30', userName: 'Petr Malý', userRole: 'ridic', action: 'Doručení', productSku: 'CV-C70-RD42', storeName: 'Karlín → Chodov', details: 'Doručen 1 ks Converse Chuck 70', category: 'transfer' },
 ];
 
 // ==================== HELPERS ====================
@@ -274,9 +274,9 @@ export function getUserName(userId: string): string {
 
 export function getRoleLabel(role: string): string {
   const labels: Record<string, string> = {
-    vedouci: 'Vedouci',
-    prodavac: 'Prodavac',
-    ridic: 'Ridic',
+    vedouci: 'Vedoucí',
+    prodavac: 'Prodavač',
+    ridic: 'Řidič',
     majitel: 'Majitel',
   };
   return labels[role] ?? role;
@@ -284,11 +284,11 @@ export function getRoleLabel(role: string): string {
 
 export function getStatusLabel(status: string): string {
   const labels: Record<string, string> = {
-    DRAFT: 'Koncept', REQUESTED: 'Pozadovano', APPROVED: 'Schvaleno',
-    DISPUTED: 'Spor', IN_TRANSIT: 'V preprave', DELIVERED: 'Doruceno',
-    REJECTED_AT_RECEIPT: 'Odmitnuto pri prijmu', RETURN_IN_TRANSIT: 'Vraceni',
-    RETURNED_TO_SOURCE: 'Vraceno', CLOSED: 'Uzavreno',
-    ACTIVE: 'Aktivni', EXPIRED: 'Expirovana', CANCELLED: 'Zrusena', FULFILLED: 'Splnena',
+    DRAFT: 'Koncept', REQUESTED: 'Požadováno', APPROVED: 'Schváleno',
+    DISPUTED: 'Spor', IN_TRANSIT: 'V přepravě', DELIVERED: 'Doručeno',
+    REJECTED_AT_RECEIPT: 'Odmítnuto při příjmu', RETURN_IN_TRANSIT: 'Vracení',
+    RETURNED_TO_SOURCE: 'Vráceno', CLOSED: 'Uzavřeno',
+    ACTIVE: 'Aktivní', EXPIRED: 'Expirovaná', CANCELLED: 'Zrušená', FULFILLED: 'Splněná',
   };
   return labels[status] ?? status;
 }

@@ -27,7 +27,7 @@ export default function DashboardMajitel() {
       <section>
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-sm font-semibold text-gray-800">
-            Cekajici arbitraze
+            Čekající arbitráže
             {pendingArbitrages.length > 0 && (
               <span className="ml-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
                 {pendingArbitrages.length}
@@ -39,17 +39,17 @@ export default function DashboardMajitel() {
         {pendingArbitrages.length === 0 ? (
           <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
             <Scale size={24} className="text-gray-300 mx-auto mb-2" />
-            <p className="text-xs text-gray-400">Zadne spory k reseni</p>
+            <p className="text-xs text-gray-400">Žádné spory k řešení</p>
           </div>
         ) : (
           <div className="space-y-2">
             {pendingArbitrages.map(tr => {
               const product = getProduct(tr.productId);
               const disputeLabels: Record<string, string> = {
-                last_piece: 'Posledni kus na prodejne',
-                reserved_local: 'Rezervovano pro mistniho zakaznika',
-                damaged: 'Zbozi poskozene',
-                other: 'Jiny duvod',
+                last_piece: 'Poslední kus na prodejně',
+                reserved_local: 'Rezervováno pro místního zákazníka',
+                damaged: 'Zboží poškozené',
+                other: 'Jiný důvod',
               };
               return (
                 <button
@@ -66,10 +66,10 @@ export default function DashboardMajitel() {
                         {product?.name} &middot; {tr.quantity} ks
                       </p>
                       <p className="text-[10px] text-red-600 mt-0.5">
-                        Duvod: {tr.disputeReason ? disputeLabels[tr.disputeReason] : 'Neuvedeno'}
+                        Důvod: {tr.disputeReason ? disputeLabels[tr.disputeReason] : 'Neuvedeno'}
                       </p>
                       <p className="text-[10px] text-gray-400 mt-0.5">
-                        Od zamitnuti: {new Date(tr.createdAt).toLocaleString('cs')}
+                        Od zamítnutí: {new Date(tr.createdAt).toLocaleString('cs')}
                       </p>
                     </div>
                     <ChevronRight size={16} className="text-gray-400" />
@@ -83,10 +83,10 @@ export default function DashboardMajitel() {
 
       {/* ATP Network Overview */}
       <section>
-        <h2 className="text-sm font-semibold text-gray-800 mb-2">ATP prehled site</h2>
+        <h2 className="text-sm font-semibold text-gray-800 mb-2">ATP přehled sítě</h2>
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div className="grid grid-cols-3 border-b border-gray-100 bg-gray-50 px-3 py-2">
-            <span className="text-[10px] font-semibold text-gray-500">Pobocka</span>
+            <span className="text-[10px] font-semibold text-gray-500">Pobočka</span>
             <span className="text-[10px] font-semibold text-gray-500 text-center">Obuv</span>
             <span className="text-[10px] font-semibold text-gray-500 text-right">ATP celkem</span>
           </div>
@@ -102,25 +102,25 @@ export default function DashboardMajitel() {
 
       {/* Daily Stats */}
       <section>
-        <h2 className="text-sm font-semibold text-gray-800 mb-2">Denni statistika</h2>
+        <h2 className="text-sm font-semibold text-gray-800 mb-2">Denní statistika</h2>
         <div className="grid grid-cols-3 gap-2">
           <div className="bg-white rounded-xl border border-gray-200 p-3 text-center">
             <p className="text-lg font-bold text-green-600">{deliveredToday}</p>
-            <p className="text-[10px] text-gray-500">Doruceno</p>
+            <p className="text-[10px] text-gray-500">Doručeno</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-3 text-center">
             <p className="text-lg font-bold text-orange-600">{returnedToday}</p>
-            <p className="text-[10px] text-gray-500">Vraceno</p>
+            <p className="text-[10px] text-gray-500">Vráceno</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-3 text-center">
             <p className="text-lg font-bold text-blue-600">{pendingCount}</p>
-            <p className="text-[10px] text-gray-500">Cekajici</p>
+            <p className="text-[10px] text-gray-500">Čekající</p>
           </div>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-3 mt-2">
           <div className="flex items-center gap-2">
             <BarChart3 size={16} className="text-gray-400" />
-            <span className="text-xs text-gray-600">Prumerny cas arbitraze: <strong className="text-gray-900">3.2 hod</strong></span>
+            <span className="text-xs text-gray-600">Průměrný čas arbitráže: <strong className="text-gray-900">3.2 hod</strong></span>
           </div>
         </div>
       </section>

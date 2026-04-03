@@ -44,7 +44,7 @@ export default function ReservationForm() {
   const handleSubmit = () => {
     if (!isValid) return;
     alert(
-      `Rezervace vytvorena!\n\nProdukt: ${product?.name}\nZakaznik: ${customerName}\nMnozstvi: ${quantity}\nPlati do: ${expirationStr}`
+      `Rezervace vytvořena!\n\nProdukt: ${product?.name}\nZákazník: ${customerName}\nMnožství: ${quantity}\nPlatí do: ${expirationStr}`
     );
     navigate('my-reservations');
   };
@@ -65,7 +65,7 @@ export default function ReservationForm() {
           <ArrowLeft size={20} className="text-gray-600" />
         </button>
         <div>
-          <h1 className="text-base font-semibold text-gray-900">Nova rezervace</h1>
+          <h1 className="text-base font-semibold text-gray-900">Nová rezervace</h1>
           <p className="text-xs text-gray-500">{product.name}</p>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function ReservationForm() {
           <span className="text-gray-800 font-mono text-xs">{product.ean}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Dostupne (ATP)</span>
+          <span className="text-gray-500">Dostupné (ATP)</span>
           <span className="text-gray-800 font-semibold">{atp} ks</span>
         </div>
       </div>
@@ -91,7 +91,7 @@ export default function ReservationForm() {
         {/* Quantity */}
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
-            Mnozstvi
+            Množství
           </label>
           <input
             type="number"
@@ -106,13 +106,13 @@ export default function ReservationForm() {
         {/* Customer name */}
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
-            Jmeno zakaznika *
+            Jméno zákazníka *
           </label>
           <input
             type="text"
             value={customerName}
             onChange={e => setCustomerName(e.target.value)}
-            placeholder="Jan Novak"
+            placeholder="Jan Novák"
             className="w-full px-3 py-2.5 text-sm bg-white rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
@@ -134,12 +134,12 @@ export default function ReservationForm() {
         {/* Note */}
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
-            Poznamka
+            Poznámka
           </label>
           <textarea
             value={note}
             onChange={e => setNote(e.target.value)}
-            placeholder="Nepovinne..."
+            placeholder="Nepovinné..."
             rows={2}
             className="w-full px-3 py-2.5 text-sm bg-white rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
           />
@@ -148,10 +148,10 @@ export default function ReservationForm() {
         {/* Expiration info */}
         <div className="bg-yellow-50 border border-yellow-200 rounded-xl px-3 py-2.5">
           <p className="text-xs text-yellow-800">
-            <span className="font-semibold">Plati do:</span> {expirationStr}
+            <span className="font-semibold">Platí do:</span> {expirationStr}
           </p>
           <p className="text-[10px] text-yellow-600 mt-0.5">
-            Rezervace je platna 1 pracovni den od vytvoreni.
+            Rezervace je platná 1 pracovní den od vytvoření.
           </p>
         </div>
       </div>
@@ -173,7 +173,7 @@ export default function ReservationForm() {
           onClick={() => navigate('search')}
           className="w-full py-3 text-sm font-medium text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition"
         >
-          Zrusit
+          Zrušit
         </button>
       </div>
     </div>

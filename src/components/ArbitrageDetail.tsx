@@ -7,16 +7,16 @@ import {
 import { ArrowLeft, Gavel, Ban } from 'lucide-react';
 
 const disputeReasonLabels: Record<string, string> = {
-  last_piece: 'Posledni kus',
-  reserved_local: 'Rezervovano pro mistniho',
-  damaged: 'Zbozi poskozene',
-  other: 'Jine',
+  last_piece: 'Poslední kus',
+  reserved_local: 'Rezervováno pro místního',
+  damaged: 'Zboží poškozené',
+  other: 'Jiné',
 };
 
 const reasonLabels: Record<string, string> = {
-  customer_waiting: 'Zakaznik ceka',
-  restock: 'Doplneni skladu',
-  other: 'Jine',
+  customer_waiting: 'Zákazník čeká',
+  restock: 'Doplnění skladu',
+  other: 'Jiné',
 };
 
 export default function ArbitrageDetail() {
@@ -52,12 +52,12 @@ export default function ArbitrageDetail() {
   });
 
   const handleForceTransfer = () => {
-    alert('Presun vynucen majitelem.\n\nProdukt: ' + product.name);
+    alert('Přesun vynucen majitelem.\n\nProdukt: ' + product.name);
     navigate('dashboard');
   };
 
   const handleConfirmRejection = () => {
-    alert('Zamitnuti potvrzeno majitelem.\n\nProdukt: ' + product.name);
+    alert('Zamítnutí potvrzeno majitelem.\n\nProdukt: ' + product.name);
     navigate('dashboard');
   };
 
@@ -69,7 +69,7 @@ export default function ArbitrageDetail() {
           <ArrowLeft size={20} className="text-gray-600" />
         </button>
         <div>
-          <h1 className="text-base font-semibold text-gray-900">Arbitraz sporu</h1>
+          <h1 className="text-base font-semibold text-gray-900">Arbitráž sporu</h1>
           <p className="text-xs text-gray-500">{transfer.id}</p>
         </div>
       </div>
@@ -85,11 +85,11 @@ export default function ArbitrageDetail() {
           <span className="text-gray-800 font-mono text-xs">{product.sku}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Mnozstvi</span>
+          <span className="text-gray-500">Množství</span>
           <span className="text-gray-800 font-semibold">{transfer.quantity} ks</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Vytvoreno</span>
+          <span className="text-gray-500">Vytvořeno</span>
           <span className="text-gray-800">{createdDate}</span>
         </div>
       </div>
@@ -101,16 +101,16 @@ export default function ArbitrageDetail() {
           <p className="text-[10px] font-semibold text-orange-600 uppercase mb-1">Zdroj</p>
           <p className="text-sm font-medium text-gray-900">{getStoreName(transfer.sourceStoreId)}</p>
           <p className="text-xs text-gray-600">
-            Vedouci: {sourceManager?.name ?? '—'}
+            Vedoucí: {sourceManager?.name ?? '—'}
           </p>
           <p className="text-xs text-gray-600 mt-1">ATP: {sourceAtp} ks</p>
         </div>
         {/* Target */}
         <div className="bg-blue-50 rounded-xl border border-blue-200 p-3">
-          <p className="text-[10px] font-semibold text-blue-600 uppercase mb-1">Cil</p>
+          <p className="text-[10px] font-semibold text-blue-600 uppercase mb-1">Cíl</p>
           <p className="text-sm font-medium text-gray-900">{getStoreName(transfer.targetStoreId)}</p>
           <p className="text-xs text-gray-600">
-            Vedouci: {targetManager?.name ?? '—'}
+            Vedoucí: {targetManager?.name ?? '—'}
           </p>
           <p className="text-xs text-gray-600 mt-1">ATP: {targetAtp} ks</p>
         </div>
@@ -119,11 +119,11 @@ export default function ArbitrageDetail() {
       {/* Dispute details */}
       <div className="bg-red-50 rounded-xl border border-red-200 p-4 mb-4 space-y-2">
         <div className="flex justify-between text-sm">
-          <span className="text-red-600">Puvodni duvod presunu</span>
+          <span className="text-red-600">Původní důvod přesunu</span>
           <span className="text-gray-800">{reasonLabels[transfer.reason] ?? transfer.reason}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-red-600">Duvod zamitnuti</span>
+          <span className="text-red-600">Důvod zamítnutí</span>
           <span className="text-gray-800 font-medium">
             {transfer.disputeReason
               ? disputeReasonLabels[transfer.disputeReason]
@@ -132,12 +132,12 @@ export default function ArbitrageDetail() {
         </div>
         {transfer.disputeText && (
           <div className="text-sm">
-            <span className="text-red-600">Komentar: </span>
+            <span className="text-red-600">Komentář: </span>
             <span className="text-gray-800">{transfer.disputeText}</span>
           </div>
         )}
         <div className="flex justify-between text-sm">
-          <span className="text-red-600">Zadal presun</span>
+          <span className="text-red-600">Zadal přesun</span>
           <span className="text-gray-800">{getUserName(transfer.createdBy)}</span>
         </div>
       </div>
@@ -149,14 +149,14 @@ export default function ArbitrageDetail() {
           className="w-full flex items-center justify-center gap-2 py-4 bg-green-600 text-white text-base font-semibold rounded-xl active:bg-green-700 transition"
         >
           <Gavel size={20} />
-          Vynutit presun
+          Vynutit přesun
         </button>
         <button
           onClick={handleConfirmRejection}
           className="w-full flex items-center justify-center gap-2 py-4 bg-gray-500 text-white text-base font-semibold rounded-xl active:bg-gray-600 transition"
         >
           <Ban size={20} />
-          Potvrdit zamitnuti
+          Potvrdit zamítnutí
         </button>
       </div>
     </div>

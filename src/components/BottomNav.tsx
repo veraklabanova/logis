@@ -15,20 +15,20 @@ export default function BottomNav() {
   if (role === 'vedouci' || role === 'prodavac') {
     tabs.push(
       { icon: <Home size={20} />, label: 'Dashboard', screen: 'dashboard' },
-      { icon: <Search size={20} />, label: 'Vyhledavani', screen: 'search' },
+      { icon: <Search size={20} />, label: 'Vyhledávání', screen: 'search' },
       { icon: <List size={20} />, label: 'Rezervace', screen: 'my-reservations' },
       { icon: <AlertTriangle size={20} />, label: 'Vady', screen: 'damages' },
     );
   } else if (role === 'ridic') {
     tabs.push(
       { icon: <Truck size={20} />, label: 'Manifest', screen: 'manifest' },
-      { icon: <Camera size={20} />, label: 'Skenovani', screen: 'scan' },
+      { icon: <Camera size={20} />, label: 'Skenování', screen: 'scan' },
     );
   } else if (role === 'majitel') {
     tabs.push(
       { icon: <Home size={20} />, label: 'Dashboard', screen: 'dashboard' },
-      { icon: <Search size={20} />, label: 'Vyhledavani', screen: 'search' },
-      { icon: <Scale size={20} />, label: 'Arbitraze', screen: 'arbitrage-detail', badge: pendingArbitrages },
+      { icon: <Search size={20} />, label: 'Vyhledávání', screen: 'search' },
+      { icon: <Scale size={20} />, label: 'Arbitráže', screen: 'arbitrage-detail', badge: pendingArbitrages },
       { icon: <FileText size={20} />, label: 'Audit log', screen: 'audit-log' },
     );
   }

@@ -10,10 +10,10 @@ import { ReservationStatus } from '@/lib/types';
 type FilterType = 'all' | 'ACTIVE' | 'EXPIRED' | 'CANCELLED';
 
 const filterChips: { value: FilterType; label: string }[] = [
-  { value: 'all', label: 'Vsechny' },
-  { value: 'ACTIVE', label: 'Aktivni' },
-  { value: 'EXPIRED', label: 'Expirovane' },
-  { value: 'CANCELLED', label: 'Zrusene' },
+  { value: 'all', label: 'Všechny' },
+  { value: 'ACTIVE', label: 'Aktivní' },
+  { value: 'EXPIRED', label: 'Expirované' },
+  { value: 'CANCELLED', label: 'Zrušené' },
 ];
 
 export default function MyReservations() {
@@ -40,7 +40,7 @@ export default function MyReservations() {
     const now = new Date();
     const expires = new Date(expiresAt);
     const diffMs = expires.getTime() - now.getTime();
-    if (diffMs <= 0) return 'Expirovano';
+    if (diffMs <= 0) return 'Expirováno';
     const hours = Math.floor(diffMs / (1000 * 60 * 60));
     const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
     if (hours > 0) return `${hours}h ${mins}m`;
@@ -64,7 +64,7 @@ export default function MyReservations() {
             Moje rezervace
             {activeCount > 0 && (
               <span className="ml-2 bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full">
-                {activeCount} aktivni
+                {activeCount} aktivní
               </span>
             )}
           </h1>
@@ -91,7 +91,7 @@ export default function MyReservations() {
       {/* Reservation list */}
       {myReservations.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-400 text-sm mb-4">Zadne rezervace</p>
+          <p className="text-gray-400 text-sm mb-4">Žádné rezervace</p>
           <button
             onClick={() => navigate('search')}
             className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-xl"
@@ -138,7 +138,7 @@ export default function MyReservations() {
                     </div>
                   )}
                   <span className="text-[10px] text-gray-400">
-                    Prodlouzeni: {res.extensions}/3
+                    Prodloužení: {res.extensions}/3
                   </span>
                 </div>
               </button>

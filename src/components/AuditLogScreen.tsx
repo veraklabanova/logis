@@ -7,10 +7,10 @@ import { ArrowLeft, ClipboardList } from 'lucide-react';
 type FilterType = 'all' | 'approval' | 'rejection' | 'transfer' | 'damage';
 
 const filterChips: { value: FilterType; label: string }[] = [
-  { value: 'all', label: 'Vsechny' },
-  { value: 'approval', label: 'Schvaleni' },
-  { value: 'rejection', label: 'Zamitnuti' },
-  { value: 'transfer', label: 'Presuny' },
+  { value: 'all', label: 'Všechny' },
+  { value: 'approval', label: 'Schválení' },
+  { value: 'rejection', label: 'Zamítnutí' },
+  { value: 'transfer', label: 'Přesuny' },
   { value: 'damage', label: 'Vady' },
 ];
 
@@ -77,7 +77,7 @@ export default function AuditLogScreen() {
       {filtered.length === 0 ? (
         <div className="text-center py-12">
           <ClipboardList size={32} className="text-gray-300 mx-auto mb-3" />
-          <p className="text-gray-400 text-sm">Zadne zaznamy</p>
+          <p className="text-gray-400 text-sm">Žádné záznamy</p>
         </div>
       ) : (
         <div className="space-y-2">

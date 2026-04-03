@@ -6,9 +6,9 @@ import { ArrowLeft } from 'lucide-react';
 import { TransferReason } from '@/lib/types';
 
 const reasonOptions: { value: TransferReason; label: string }[] = [
-  { value: 'customer_waiting', label: 'Zakaznik ceka' },
-  { value: 'restock', label: 'Doplneni skladu' },
-  { value: 'other', label: 'Jine' },
+  { value: 'customer_waiting', label: 'Zákazník čeká' },
+  { value: 'restock', label: 'Doplnění skladu' },
+  { value: 'other', label: 'Jiné' },
 ];
 
 export default function TransferForm() {
@@ -27,7 +27,7 @@ export default function TransferForm() {
   const handleSubmit = () => {
     if (!isValid) return;
     alert(
-      `Pozadavek odeslan!\n\nProdukt: ${product?.name}\nZ: ${getStoreName(sourceStoreId)}\nDo: ${getStoreName(targetStoreId)}\nMnozstvi: ${quantity}\nDuvod: ${reasonOptions.find(r => r.value === reason)?.label}`
+      `Požadavek odeslán!\n\nProdukt: ${product?.name}\nZ: ${getStoreName(sourceStoreId)}\nDo: ${getStoreName(targetStoreId)}\nMnožství: ${quantity}\nDůvod: ${reasonOptions.find(r => r.value === reason)?.label}`
     );
     navigate('dashboard');
   };
@@ -48,7 +48,7 @@ export default function TransferForm() {
           <ArrowLeft size={20} className="text-gray-600" />
         </button>
         <div>
-          <h1 className="text-base font-semibold text-gray-900">Novy pozadavek na presun</h1>
+          <h1 className="text-base font-semibold text-gray-900">Nový požadavek na přesun</h1>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ export default function TransferForm() {
           <span className="text-gray-800 font-mono text-xs">{product.sku}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Zdrojova prodejna</span>
+          <span className="text-gray-500">Zdrojová prodejna</span>
           <span className="text-gray-800 font-medium">{getStoreName(sourceStoreId)}</span>
         </div>
         <div className="flex justify-between text-sm">
@@ -71,7 +71,7 @@ export default function TransferForm() {
           <span className="text-gray-800 font-semibold">{sourceAtp} ks</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-500">Cilova prodejna</span>
+          <span className="text-gray-500">Cílová prodejna</span>
           <span className="text-blue-700 font-medium">{getStoreName(targetStoreId)}</span>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function TransferForm() {
         {/* Quantity */}
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
-            Mnozstvi (max {sourceAtp})
+            Množství (max {sourceAtp})
           </label>
           <input
             type="number"
@@ -98,7 +98,7 @@ export default function TransferForm() {
         {/* Reason */}
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
-            Duvod presunu
+            Důvod přesunu
           </label>
           <select
             value={reason}
@@ -116,12 +116,12 @@ export default function TransferForm() {
         {/* Note */}
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
-            Poznamka
+            Poznámka
           </label>
           <textarea
             value={note}
             onChange={e => setNote(e.target.value)}
-            placeholder="Nepovinne..."
+            placeholder="Nepovinné..."
             rows={2}
             className="w-full px-3 py-2.5 text-sm bg-white rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
           />
@@ -130,8 +130,8 @@ export default function TransferForm() {
         {/* Info */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2.5">
           <p className="text-xs text-blue-800">
-            Pozadavek bude odeslan vedoucimu zdrojove prodejny ke schvaleni.
-            Presuny potvrzene do 14:00 jsou zarazeny na dnesni manifest ridice.
+            Požadavek bude odeslán vedoucímu zdrojové prodejny ke schválení.
+            Přesuny potvrzené do 14:00 jsou zařazeny na dnešní manifest řidiče.
           </p>
         </div>
       </div>
@@ -147,13 +147,13 @@ export default function TransferForm() {
               : 'bg-gray-200 text-gray-400 cursor-not-allowed'
           }`}
         >
-          Odeslat pozadavek
+          Odeslat požadavek
         </button>
         <button
           onClick={() => navigate('search')}
           className="w-full py-3 text-sm font-medium text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition"
         >
-          Zrusit
+          Zrušit
         </button>
       </div>
     </div>

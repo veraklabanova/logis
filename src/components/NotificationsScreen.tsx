@@ -31,9 +31,9 @@ export default function NotificationsScreen() {
     const diffH = Math.floor(diffMs / (1000 * 60 * 60));
     const diffD = Math.floor(diffH / 24);
 
-    if (diffH < 1) return 'Prave ted';
-    if (diffH < 24) return `Pred ${diffH}h`;
-    if (diffD < 7) return `Pred ${diffD}d`;
+    if (diffH < 1) return 'Právě teď';
+    if (diffH < 24) return `Před ${diffH}h`;
+    if (diffD < 7) return `Před ${diffD}d`;
     return d.toLocaleDateString('cs-CZ', {
       day: '2-digit',
       month: '2-digit',
@@ -41,7 +41,7 @@ export default function NotificationsScreen() {
   };
 
   const handleTap = () => {
-    alert('Navigace na detail v prototypu neni dostupna');
+    alert('Navigace na detail v prototypu není dostupná');
   };
 
   return (
@@ -67,7 +67,7 @@ export default function NotificationsScreen() {
       {myNotifications.length === 0 ? (
         <div className="text-center py-12">
           <Bell size={32} className="text-gray-300 mx-auto mb-3" />
-          <p className="text-gray-400 text-sm">Zadne notifikace</p>
+          <p className="text-gray-400 text-sm">Žádné notifikace</p>
         </div>
       ) : (
         <div className="space-y-1">

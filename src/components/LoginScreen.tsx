@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAppStore } from '@/lib/store';
 import { users, stores, getRoleLabel } from '@/lib/data';
 import { Package } from 'lucide-react';
@@ -12,39 +12,69 @@ export default function LoginScreen() {
   const [attempts, setAttempts] = useState(0);
   const [locked, setLocked] = useState(false);
 
-  const grouped = stores.map(store => ({
+  // Store groups for 2x3 grid (only store staff)
+  const storeGroups = stores.map(store => ({
     store,
-    users: users.filter(u => u.storeId === store.id),
+    users: users.filter(u => u.storeId === store.id && u.role !== 'ridic' && u.role !== 'majitel'),
   }));
 
-  // Add drivers and owner as separate groups
   const drivers = users.filter(u => u.role === 'ridic');
   const owners = users.filter(u => u.role === 'majitel');
 
-  const handlePinInput = (digit: string) => {
+  const handlePinInput = useCallback((digit: string) => {
     if (locked) return;
-    const newPin = pin + digit;
-    setPin(newPin);
-    setError('');
+    setPin(prev => {
+      const newPin = prev + digit;
+      setError('');
 
-    if (newPin.length === 4) {
-      const user = users.find(u => u.id === selectedUserId);
-      if (user && user.pin === newPin) {
-        login(user);
-      } else {
-        const newAttempts = attempts + 1;
-        setAttempts(newAttempts);
-        setPin('');
-        if (newAttempts >= 5) {
-          setLocked(true);
-          setError('Ucet zamcen na 5 minut');
-          setTimeout(() => { setLocked(false); setAttempts(0); }, 300000);
+      if (newPin.length === 4) {
+        const user = users.find(u => u.id === selectedUserId);
+        if (user && user.pin === newPin) {
+          // Delay login slightly so state updates cleanly
+          setTimeout(() => login(user), 50);
         } else {
-          setError('Nespravny PIN');
+          setAttempts(prev => {
+            const newAttempts = prev + 1;
+            if (newAttempts >= 5) {
+              setLocked(true);
+              setError('Účet zamčen na 5 minut');
+              setTimeout(() => { setLocked(false); setAttempts(0); }, 300000);
+            } else {
+              setError('Nesprávný PIN');
+            }
+            return newAttempts;
+          });
+          return '';
         }
       }
-    }
-  };
+
+      return newPin.length <= 4 ? newPin : prev;
+    });
+  }, [locked, selectedUserId, login]);
+
+  const handleBackspace = useCallback(() => {
+    setPin(prev => prev.slice(0, -1));
+  }, []);
+
+  // Keyboard support for numeric input
+  useEffect(() => {
+    if (!selectedUserId) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key >= '0' && e.key <= '9') {
+        handlePinInput(e.key);
+      } else if (e.key === 'Backspace') {
+        handleBackspace();
+      } else if (e.key === 'Escape') {
+        setSelectedUserId(null);
+        setPin('');
+        setError('');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedUserId, handlePinInput, handleBackspace]);
 
   const roleTag = (role: string) => {
     const colors: Record<string, string> = {
@@ -68,71 +98,92 @@ export default function LoginScreen() {
           <Package size={32} className="text-white" />
         </div>
         <h1 className="text-xl font-bold text-gray-900">Logis</h1>
-        <p className="text-xs text-gray-500 mt-1">Interni logistika a rezervace</p>
+        <p className="text-xs text-gray-500 mt-1">Interní logistika a rezervace</p>
       </div>
 
       {!selectedUserId ? (
-        /* User List */
+        /* User Selection */
         <div className="px-4 pb-32">
-          {grouped.filter(g => g.users.some(u => u.role !== 'ridic' && u.role !== 'majitel')).map(({ store, users: storeUsers }) => (
-            <div key={store.id} className="mb-4">
-              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5 px-1">{store.name}</h3>
-              <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
-                {storeUsers.filter(u => u.role !== 'ridic' && u.role !== 'majitel').map(user => (
+          {/* 2x3 Grid of Stores */}
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            {storeGroups.map(({ store, users: storeUsers }) => (
+              <div key={store.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <div className="bg-gray-50 px-3 py-1.5 border-b border-gray-100">
+                  <h3 className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">{store.shortName}</h3>
+                </div>
+                <div className="divide-y divide-gray-50">
+                  {storeUsers.map(user => (
+                    <button
+                      key={user.id}
+                      onClick={() => { setSelectedUserId(user.id); setPin(''); setError(''); }}
+                      className="w-full flex items-center justify-between px-3 py-2 hover:bg-gray-50 transition"
+                    >
+                      <span className="text-xs text-gray-800 truncate">{user.name}</span>
+                      {roleTag(user.role)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Drivers + Management row */}
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            {/* Drivers */}
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <div className="bg-orange-50 px-3 py-1.5 border-b border-orange-100">
+                <h3 className="text-[10px] font-semibold text-orange-600 uppercase tracking-wider">Řidiči</h3>
+              </div>
+              <div className="divide-y divide-gray-50">
+                {drivers.map(user => (
                   <button
                     key={user.id}
                     onClick={() => { setSelectedUserId(user.id); setPin(''); setError(''); }}
-                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition"
+                    className="w-full flex items-center justify-between px-3 py-2 hover:bg-gray-50 transition"
                   >
-                    <span className="text-sm text-gray-800">{user.name}</span>
+                    <span className="text-xs text-gray-800">{user.name}</span>
                     {roleTag(user.role)}
                   </button>
                 ))}
               </div>
             </div>
-          ))}
 
-          {/* Drivers */}
-          <div className="mb-4">
-            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5 px-1">Ridici</h3>
-            <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
-              {drivers.map(user => (
-                <button
-                  key={user.id}
-                  onClick={() => { setSelectedUserId(user.id); setPin(''); setError(''); }}
-                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition"
-                >
-                  <span className="text-sm text-gray-800">{user.name}</span>
-                  {roleTag(user.role)}
-                </button>
-              ))}
+            {/* Management / Owner */}
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <div className="bg-purple-50 px-3 py-1.5 border-b border-purple-100">
+                <h3 className="text-[10px] font-semibold text-purple-600 uppercase tracking-wider">Vedení</h3>
+              </div>
+              <div className="divide-y divide-gray-50">
+                {owners.map(user => (
+                  <button
+                    key={user.id}
+                    onClick={() => { setSelectedUserId(user.id); setPin(''); setError(''); }}
+                    className="w-full flex items-center justify-between px-3 py-2 hover:bg-gray-50 transition"
+                  >
+                    <span className="text-xs text-gray-800">{user.name}</span>
+                    {roleTag(user.role)}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Owner */}
-          <div className="mb-4">
-            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5 px-1">Vedeni</h3>
-            <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
-              {owners.map(user => (
-                <button
-                  key={user.id}
-                  onClick={() => { setSelectedUserId(user.id); setPin(''); setError(''); }}
-                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition"
-                >
-                  <span className="text-sm text-gray-800">{user.name}</span>
-                  {roleTag(user.role)}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Yellow Prototype Banner */}
+          {/* Yellow Prototype Banner with PIN info */}
           <div className="mt-6 mb-8 bg-yellow-50 border border-yellow-200 rounded-xl px-4 py-3">
-            <p className="text-xs text-yellow-800">
+            <p className="text-xs text-yellow-800 mb-2">
               <span className="font-bold">Prototyp:</span>{' '}
-              Toto je funkcni prototyp pro demonstraci UI/UX. Data jsou fiktivni (do 15.2.2025).
-              Prepinajte role pomoci seznamu uzivatelu pro zobrazeni ruznych pohledu.
+              Toto je funkční prototyp pro demonstraci UI/UX. Data jsou fiktivní (do 15.2.2025).
+              Přepínejte role pomocí seznamu uživatelů pro zobrazení různých pohledů.
             </p>
+            <div className="border-t border-yellow-200 pt-2 mt-2">
+              <p className="text-[10px] font-semibold text-yellow-700 mb-1">PIN pro testování:</p>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-[10px] text-yellow-700">
+                <span>Vedoucí: <strong className="font-mono">1234</strong></span>
+                <span>Prodavač: <strong className="font-mono">1111</strong></span>
+                <span>Řidič: <strong className="font-mono">5555</strong></span>
+                <span>Majitel: <strong className="font-mono">9999</strong></span>
+              </div>
+            </div>
           </div>
         </div>
       ) : (
@@ -148,8 +199,8 @@ export default function LoginScreen() {
             {[0, 1, 2, 3].map(i => (
               <div
                 key={i}
-                className={`w-4 h-4 rounded-full border-2 ${
-                  pin.length > i ? 'bg-blue-600 border-blue-600' : 'border-gray-300'
+                className={`w-4 h-4 rounded-full border-2 transition-all ${
+                  pin.length > i ? 'bg-blue-600 border-blue-600 scale-110' : 'border-gray-300'
                 }`}
               />
             ))}
@@ -157,13 +208,16 @@ export default function LoginScreen() {
 
           {error && <p className="text-red-500 text-xs mb-4">{error}</p>}
 
+          {/* Hint for keyboard */}
+          <p className="text-[10px] text-gray-300 mb-3">Můžete použít i numerickou klávesnici</p>
+
           {/* Numpad */}
           <div className="grid grid-cols-3 gap-3 max-w-[240px] mx-auto">
             {[1,2,3,4,5,6,7,8,9].map(n => (
               <button
                 key={n}
                 onClick={() => handlePinInput(String(n))}
-                className="h-14 rounded-xl bg-gray-100 hover:bg-gray-200 text-lg font-medium text-gray-800 transition"
+                className="h-14 rounded-xl bg-gray-100 hover:bg-gray-200 text-lg font-medium text-gray-800 transition active:scale-95"
               >
                 {n}
               </button>
@@ -172,16 +226,16 @@ export default function LoginScreen() {
               onClick={() => { setSelectedUserId(null); setPin(''); setError(''); }}
               className="h-14 rounded-xl text-sm text-gray-500 hover:bg-gray-100 transition"
             >
-              Zpet
+              Zpět
             </button>
             <button
               onClick={() => handlePinInput('0')}
-              className="h-14 rounded-xl bg-gray-100 hover:bg-gray-200 text-lg font-medium text-gray-800 transition"
+              className="h-14 rounded-xl bg-gray-100 hover:bg-gray-200 text-lg font-medium text-gray-800 transition active:scale-95"
             >
               0
             </button>
             <button
-              onClick={() => setPin(pin.slice(0, -1))}
+              onClick={() => handleBackspace()}
               className="h-14 rounded-xl text-sm text-gray-500 hover:bg-gray-100 transition"
             >
               Smazat

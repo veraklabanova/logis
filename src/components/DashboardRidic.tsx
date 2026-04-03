@@ -38,8 +38,8 @@ export default function DashboardRidic() {
       <div className="bg-white rounded-xl border border-gray-200 p-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-semibold text-gray-900">14. unora 2025, patek</p>
-            <p className="text-xs text-green-600 mt-0.5">Smena otevrena</p>
+            <p className="text-sm font-semibold text-gray-900">14. února 2025, pátek</p>
+            <p className="text-xs text-green-600 mt-0.5">Směna otevřena</p>
           </div>
           <Truck size={20} className="text-blue-500" />
         </div>
@@ -48,22 +48,22 @@ export default function DashboardRidic() {
       {/* Manifest Summary */}
       <section>
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-sm font-semibold text-gray-800">Dnesni manifest</h2>
-          <span className="text-[10px] text-gray-400">Uzamcen od 07:45</span>
+          <h2 className="text-sm font-semibold text-gray-800">Dnešní manifest</h2>
+          <span className="text-[10px] text-gray-400">Uzamčen od 07:45</span>
         </div>
 
         {manifestItems.length === 0 ? (
           <div className="bg-white rounded-xl border border-gray-200 p-8 text-center">
             <Truck size={32} className="text-gray-300 mx-auto mb-2" />
-            <p className="text-sm text-gray-400">Dnes zadne presuny</p>
+            <p className="text-sm text-gray-400">Dnes žádné přesuny</p>
           </div>
         ) : (
           <>
             {/* Summary bar */}
             <div className="bg-white rounded-xl border border-gray-200 p-3 mb-3">
               <div className="flex justify-between text-xs text-gray-600 mb-1">
-                <span>Pobocek: {uniqueStores.length}</span>
-                <span>Polozek: {totalItems}</span>
+                <span>Poboček: {uniqueStores.length}</span>
+                <span>Položek: {totalItems}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div
@@ -71,7 +71,7 @@ export default function DashboardRidic() {
                   style={{ width: `${totalItems > 0 ? (doneItems / totalItems) * 100 : 0}%` }}
                 />
               </div>
-              <p className="text-[10px] text-gray-400 mt-1">{doneItems} z {totalItems} vyrizeno</p>
+              <p className="text-[10px] text-gray-400 mt-1">{doneItems} z {totalItems} vyřízeno</p>
             </div>
 
             {/* Store accordion */}
@@ -123,9 +123,9 @@ export default function DashboardRidic() {
                                 <p className="text-[10px] text-gray-500">{tr.quantity} ks &middot; EAN: {product?.ean}</p>
                               </div>
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded">NALOZIT</span>
+                                <span className="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded">NALOŽIT</span>
                                 <span className="text-[10px] text-gray-400">
-                                  {tr.status === 'IN_TRANSIT' ? '●' : '○'} {tr.status === 'IN_TRANSIT' ? 'Hotovo' : 'Ceka'}
+                                  {tr.status === 'IN_TRANSIT' ? '●' : '○'} {tr.status === 'IN_TRANSIT' ? 'Hotovo' : 'Čeká'}
                                 </span>
                               </div>
                             </div>
@@ -140,8 +140,8 @@ export default function DashboardRidic() {
                                 <p className="text-[10px] text-gray-500">{tr.quantity} ks &middot; EAN: {product?.ean}</p>
                               </div>
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded">VYLOZIT</span>
-                                <span className="text-[10px] text-gray-400">○ Ceka</span>
+                                <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded">VYLOŽIT</span>
+                                <span className="text-[10px] text-gray-400">○ Čeká</span>
                               </div>
                             </div>
                           );
@@ -163,14 +163,14 @@ export default function DashboardRidic() {
             <div className="mt-4">
               {doneItems < totalItems ? (
                 <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-center">
-                  <p className="text-xs text-red-600">Nelze uzavrit — {totalItems - doneItems} polozek zbyva</p>
+                  <p className="text-xs text-red-600">Nelze uzavřít — {totalItems - doneItems} položek zbývá</p>
                   <button disabled className="mt-2 w-full py-2.5 bg-gray-300 text-gray-500 text-sm font-medium rounded-xl cursor-not-allowed">
-                    Uzavrit smenu
+                    Uzavřít směnu
                   </button>
                 </div>
               ) : (
                 <button className="w-full py-2.5 bg-green-600 text-white text-sm font-medium rounded-xl hover:bg-green-700 transition">
-                  Uzavrit smenu
+                  Uzavřít směnu
                 </button>
               )}
             </div>
