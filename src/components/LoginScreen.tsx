@@ -91,9 +91,23 @@ export default function LoginScreen() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 max-w-md mx-auto">
+    <div className="min-h-screen bg-gray-50 max-w-md mx-auto relative">
+      {/* Yellow Prototype Banner — sticky top-left, always visible */}
+      <div className="sticky top-0 z-50 bg-yellow-50 border-b border-yellow-200 px-4 py-2.5">
+        <p className="text-[11px] text-yellow-800">
+          <span className="font-bold">Prototyp:</span>{' '}
+          Funkční prototyp pro demonstraci UI/UX. Data fiktivní (do 15.2.2025).
+        </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-0 mt-1 text-[10px] text-yellow-700">
+          <span>Vedoucí: <strong className="font-mono">1234</strong></span>
+          <span>Prodavač: <strong className="font-mono">1111</strong></span>
+          <span>Řidič: <strong className="font-mono">5555</strong></span>
+          <span>Majitel: <strong className="font-mono">9999</strong></span>
+        </div>
+      </div>
+
       {/* Logo */}
-      <div className="pt-10 pb-6 text-center">
+      <div className="pt-8 pb-5 text-center">
         <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
           <Package size={32} className="text-white" />
         </div>
@@ -168,23 +182,6 @@ export default function LoginScreen() {
             </div>
           </div>
 
-          {/* Yellow Prototype Banner with PIN info */}
-          <div className="mt-6 mb-8 bg-yellow-50 border border-yellow-200 rounded-xl px-4 py-3">
-            <p className="text-xs text-yellow-800 mb-2">
-              <span className="font-bold">Prototyp:</span>{' '}
-              Toto je funkční prototyp pro demonstraci UI/UX. Data jsou fiktivní (do 15.2.2025).
-              Přepínejte role pomocí seznamu uživatelů pro zobrazení různých pohledů.
-            </p>
-            <div className="border-t border-yellow-200 pt-2 mt-2">
-              <p className="text-[10px] font-semibold text-yellow-700 mb-1">PIN pro testování:</p>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-[10px] text-yellow-700">
-                <span>Vedoucí: <strong className="font-mono">1234</strong></span>
-                <span>Prodavač: <strong className="font-mono">1111</strong></span>
-                <span>Řidič: <strong className="font-mono">5555</strong></span>
-                <span>Majitel: <strong className="font-mono">9999</strong></span>
-              </div>
-            </div>
-          </div>
         </div>
       ) : (
         /* PIN Input */

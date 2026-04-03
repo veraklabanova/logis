@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import { User } from './types';
 
-type Screen =
+export type Screen =
   | 'login'
   | 'dashboard'
   | 'search'
