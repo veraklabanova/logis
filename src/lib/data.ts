@@ -18,47 +18,47 @@ export const users: User[] = [
   // P1 - Centrum
   { id: 'U01', name: 'Jan Novák', role: 'vedouci', storeId: 'P1', pin: '1234' },
   { id: 'U02', name: 'Petra Svobodová', role: 'prodavac', storeId: 'P1', pin: '1111' },
-  { id: 'U03', name: 'Tomáš Procházka', role: 'prodavac', storeId: 'P1', pin: '2222' },
-  { id: 'U04', name: 'Lucie Králová', role: 'prodavac', storeId: 'P1', pin: '3333' },
-  { id: 'U05', name: 'Martin Horák', role: 'prodavac', storeId: 'P1', pin: '4444' },
+  { id: 'U03', name: 'Tomáš Procházka', role: 'prodavac', storeId: 'P1', pin: '1111' },
+  { id: 'U04', name: 'Lucie Králová', role: 'prodavac', storeId: 'P1', pin: '1111' },
+  { id: 'U05', name: 'Martin Horák', role: 'prodavac', storeId: 'P1', pin: '1111' },
   // P2 - Vinohrady
   { id: 'U06', name: 'Eva Němcová', role: 'vedouci', storeId: 'P2', pin: '1234' },
   { id: 'U07', name: 'David Kolář', role: 'prodavac', storeId: 'P2', pin: '1111' },
-  { id: 'U08', name: 'Hana Marešová', role: 'prodavac', storeId: 'P2', pin: '2222' },
-  { id: 'U09', name: 'Jiří Pospíšil', role: 'prodavac', storeId: 'P2', pin: '3333' },
-  { id: 'U10', name: 'Kateřina Hájková', role: 'prodavac', storeId: 'P2', pin: '4444' },
+  { id: 'U08', name: 'Hana Marešová', role: 'prodavac', storeId: 'P2', pin: '1111' },
+  { id: 'U09', name: 'Jiří Pospíšil', role: 'prodavac', storeId: 'P2', pin: '1111' },
+  { id: 'U10', name: 'Kateřina Hájková', role: 'prodavac', storeId: 'P2', pin: '1111' },
   // P3 - Smíchov
   { id: 'U11', name: 'Michal Jelínek', role: 'vedouci', storeId: 'P3', pin: '1234' },
   { id: 'U12', name: 'Veronika Kopecká', role: 'prodavac', storeId: 'P3', pin: '1111' },
-  { id: 'U13', name: 'Ondřej Fiala', role: 'prodavac', storeId: 'P3', pin: '2222' },
-  { id: 'U14', name: 'Barbora Vlčková', role: 'prodavac', storeId: 'P3', pin: '3333' },
-  { id: 'U15', name: 'Štěpán Kříž', role: 'prodavac', storeId: 'P3', pin: '4444' },
+  { id: 'U13', name: 'Ondřej Fiala', role: 'prodavac', storeId: 'P3', pin: '1111' },
+  { id: 'U14', name: 'Barbora Vlčková', role: 'prodavac', storeId: 'P3', pin: '1111' },
+  { id: 'U15', name: 'Štěpán Kříž', role: 'prodavac', storeId: 'P3', pin: '1111' },
   // P4 - Karlín
   { id: 'U16', name: 'Alena Sedláčková', role: 'vedouci', storeId: 'P4', pin: '1234' },
   { id: 'U17', name: 'Pavel Beneš', role: 'prodavac', storeId: 'P4', pin: '1111' },
-  { id: 'U18', name: 'Markéta Růžičková', role: 'prodavac', storeId: 'P4', pin: '2222' },
-  { id: 'U19', name: 'Vojtěch Polák', role: 'prodavac', storeId: 'P4', pin: '3333' },
-  { id: 'U20', name: 'Simona Kadlecová', role: 'prodavac', storeId: 'P4', pin: '4444' },
+  { id: 'U18', name: 'Markéta Růžičková', role: 'prodavac', storeId: 'P4', pin: '1111' },
+  { id: 'U19', name: 'Vojtěch Polák', role: 'prodavac', storeId: 'P4', pin: '1111' },
+  { id: 'U20', name: 'Simona Kadlecová', role: 'prodavac', storeId: 'P4', pin: '1111' },
   // P5 - Letná
   { id: 'U21', name: 'Roman Doležal', role: 'vedouci', storeId: 'P5', pin: '1234' },
   { id: 'U22', name: 'Ivana Bláhová', role: 'prodavac', storeId: 'P5', pin: '1111' },
-  { id: 'U23', name: 'Filip Koubek', role: 'prodavac', storeId: 'P5', pin: '2222' },
-  { id: 'U24', name: 'Tereza Mach', role: 'prodavac', storeId: 'P5', pin: '3333' },
-  { id: 'U25', name: 'Daniel Kučera', role: 'prodavac', storeId: 'P5', pin: '4444' },
+  { id: 'U23', name: 'Filip Koubek', role: 'prodavac', storeId: 'P5', pin: '1111' },
+  { id: 'U24', name: 'Tereza Mach', role: 'prodavac', storeId: 'P5', pin: '1111' },
+  { id: 'U25', name: 'Daniel Kučera', role: 'prodavac', storeId: 'P5', pin: '1111' },
   // P6 - Chodov
   { id: 'U26', name: 'Lenka Strnadová', role: 'vedouci', storeId: 'P6', pin: '1234' },
   { id: 'U27', name: 'Jakub Vávra', role: 'prodavac', storeId: 'P6', pin: '1111' },
-  { id: 'U28', name: 'Nikola Pechová', role: 'prodavac', storeId: 'P6', pin: '2222' },
-  { id: 'U29', name: 'Adam Sýkora', role: 'prodavac', storeId: 'P6', pin: '3333' },
+  { id: 'U28', name: 'Nikola Pechová', role: 'prodavac', storeId: 'P6', pin: '1111' },
+  { id: 'U29', name: 'Adam Sýkora', role: 'prodavac', storeId: 'P6', pin: '1111' },
   // Řidiči
   { id: 'U30', name: 'Petr Malý', role: 'ridic', storeId: 'P1', pin: '5555' },
-  { id: 'U31', name: 'Radek Veselý', role: 'ridic', storeId: 'P1', pin: '6666' },
+  { id: 'U31', name: 'Radek Veselý', role: 'ridic', storeId: 'P1', pin: '5555' },
   // Majitel
   { id: 'U32', name: 'Karel Dvořák', role: 'majitel', storeId: 'P1', pin: '9999' },
   // Doplnění
-  { id: 'U33', name: 'Zuzana Havlíčková', role: 'prodavac', storeId: 'P6', pin: '7777' },
-  { id: 'U34', name: 'Aleš Bartoš', role: 'prodavac', storeId: 'P1', pin: '8888' },
-  { id: 'U35', name: 'Monika Šťastná', role: 'prodavac', storeId: 'P3', pin: '9090' },
+  { id: 'U33', name: 'Zuzana Havlíčková', role: 'prodavac', storeId: 'P6', pin: '1111' },
+  { id: 'U34', name: 'Aleš Bartoš', role: 'prodavac', storeId: 'P1', pin: '1111' },
+  { id: 'U35', name: 'Monika Šťastná', role: 'prodavac', storeId: 'P3', pin: '1111' },
 ];
 
 // ==================== PRODUCTS (Obuv - MVP) ====================
